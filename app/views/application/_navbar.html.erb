@@ -1,0 +1,26 @@
+<div class="navbar navbar-inverse footer">
+  <div class="container">
+    <div class="navbar-header">
+	    <%= link_to ?#, class: 'navbar-toggle collapsed', data: {toggle: 'collapse', target: '#menu'} do %>
+	      <%= fa_icon 'bars' %>
+	    <% end %>
+      <%= link_to 'Профиль', @current_user, class: 'navbar-brand' %>
+    </div>
+	  <div id="menu" class="collapse navbar-collapse">
+		  <ul class="nav navbar-nav">
+			  <li><%= link_to 'Все пользователи', users_path %></li>
+		  </ul>
+	    <ul class="nav navbar-nav navbar-right">
+		    <% if @current_user.blank? %>
+	        <li><%= link_to 'Регистрация', new_user_path %></li>
+	        <li><%= link_to 'Вход', login_path %></li>
+		    <% else %>
+		      <li>
+			      <span class="navbar-text"><%= @current_user.login %></span>
+	          <%= link_to 'Выход', logout_path, data: {method: :patch} %>
+			    </li>
+		    <% end %>
+		  </ul>
+	  </div>
+  </div>
+</div>

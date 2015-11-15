@@ -1,0 +1,25 @@
+---
+- id: c6aa7390-6ddd-0133-5122-001e9006257f
+  login: admin
+  password: administrator
+  lastname: Администраторов
+  firstname: Администратор
+  patronymic: Администраторович
+  email: admin@mail.mami.ru
+  role: 2
+- id: c7c978b0-6ddd-0133-5122-001e9006257f
+  login: teacher
+  password: teacher
+  lastname: Тестовый
+  firstname: Преподаватель
+  patronymic: Преподавателевич
+  email: teacher@mail.mami.ru
+  role: 1
+- id: c7ffeb00-6ddd-0133-5122-001e9006257f
+  login: tps1
+  password: test_user
+  lastname: Тестовый
+  firstname: Пользователь
+  patronymic: Системы
+  email: tus1@mail.mami.ru
+  role: 0

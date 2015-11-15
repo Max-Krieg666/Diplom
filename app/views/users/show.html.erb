@@ -1,0 +1,22 @@
+<p>
+  <strong><%= User.human_attribute_name(:login) %>:</strong>
+  <%= @user.login %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:fio) %>:</strong>
+  <%= @user.fio %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:role) %>:</strong>
+  <%= @user.role_name %>
+</p>
+
+<%= link_to 'Редактировать', edit_user_path(@user) %> |
+<%= link_to 'Назад', users_path %>

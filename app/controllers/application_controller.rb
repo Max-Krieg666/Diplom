@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def check_owner
+    def check_user
       if @current_user.blank?
         flash[:danger] = 'Необходимо войти в систему для просмотра данной страницы!'
         redirect_to root_path

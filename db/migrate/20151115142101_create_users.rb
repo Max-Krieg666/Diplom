@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :patronymic
       t.string :email
       t.integer :role, default: 0
+      t.boolean :is_active, default: true
 
       t.timestamps null: false
     end

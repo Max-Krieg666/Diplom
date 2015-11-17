@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Student Rating Elements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_rating_elements.each do |student_rating_element| %>
+      <tr>
+        <td><%= student_rating_element.value %></td>
+        <td><%= link_to 'Show', student_rating_element %></td>
+        <td><%= link_to 'Edit', edit_student_rating_element_path(student_rating_element) %></td>
+        <td><%= link_to 'Destroy', student_rating_element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student rating element', new_student_rating_element_path %>

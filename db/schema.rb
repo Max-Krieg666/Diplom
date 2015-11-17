@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115142101) do
+ActiveRecord::Schema.define(version: 20151117213209) do
+
+# Could not dump table "disciplines" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "documents" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "groups" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "pages" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "rating_elements" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "ratings" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "sections" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "student_rating_elements", force: :cascade do |t|
+    t.integer  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

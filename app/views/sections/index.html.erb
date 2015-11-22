@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Sections</h1>
+<h1>Все Sections</h1>
 
 <table>
   <thead>
@@ -16,9 +14,9 @@
       <tr>
         <td><%= section.title %></td>
         <td><%= section.content %></td>
-        <td><%= link_to 'Show', section %></td>
-        <td><%= link_to 'Edit', edit_section_path(section) %></td>
-        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', section %></td>
+        <td><%= link_to 'Редактировать', edit_section_path(section) %></td>
+        <td><%= link_to 'Удалить', section, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Section', new_section_path %>
+<%= link_to 'Создание Section', new_section_path %>

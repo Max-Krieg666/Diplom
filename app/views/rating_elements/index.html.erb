@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Rating Elements</h1>
+<h1>Все элементы рейтингов</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Score</th>
+      <th><%= RatingElement.human_attribute_name(:title) %></th>
+      <th><%= RatingElement.human_attribute_name(:score) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +14,9 @@
       <tr>
         <td><%= rating_element.title %></td>
         <td><%= rating_element.score %></td>
-        <td><%= link_to 'Show', rating_element %></td>
-        <td><%= link_to 'Edit', edit_rating_element_path(rating_element) %></td>
-        <td><%= link_to 'Destroy', rating_element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', rating_element %></td>
+        <td><%= link_to 'Редактировать', edit_rating_element_path(rating_element) %></td>
+        <td><%= link_to 'Удалить', rating_element, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Rating element', new_rating_element_path %>
+<%= link_to 'Создание элемента рейтинга', new_rating_element_path %>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Student Rating Elements</h1>
+<h1>Все Student Rating Elements</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
     <% @student_rating_elements.each do |student_rating_element| %>
       <tr>
         <td><%= student_rating_element.value %></td>
-        <td><%= link_to 'Show', student_rating_element %></td>
-        <td><%= link_to 'Edit', edit_student_rating_element_path(student_rating_element) %></td>
-        <td><%= link_to 'Destroy', student_rating_element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', student_rating_element %></td>
+        <td><%= link_to 'Редактировать', edit_student_rating_element_path(student_rating_element) %></td>
+        <td><%= link_to 'Удалить', student_rating_element, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Student rating element', new_student_rating_element_path %>
+<%= link_to 'Создание Student rating element', new_student_rating_element_path %>

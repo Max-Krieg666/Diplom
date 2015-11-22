@@ -1,4 +1,5 @@
 class RatingElementsController < ApplicationController
+	before_action :check_user
   before_action :set_rating_element, only: [:show, :edit, :update, :destroy]
 
   # GET /rating_elements

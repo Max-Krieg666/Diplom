@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117213209) do
+ActiveRecord::Schema.define(version: 20151122092440) do
 
 # Could not dump table "disciplines" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "disciplines_users", id: false, force: :cascade do |t|
+    t.integer "discipline_id"
+    t.integer "user_id"
+  end
+
+  add_index "disciplines_users", ["discipline_id", "user_id"], name: "index_disciplines_users_on_discipline_id_and_user_id"
+  add_index "disciplines_users", ["user_id"], name: "index_disciplines_users_on_user_id"
 
 # Could not dump table "documents" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -36,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151117213209) do
 
   create_table "student_rating_elements", force: :cascade do |t|
     t.integer  "value"
+    t.string   "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

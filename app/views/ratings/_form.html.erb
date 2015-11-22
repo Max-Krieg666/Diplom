@@ -1,21 +1,11 @@
 <%= form_for(@rating) do |f| %>
-  <% if @rating.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
-
-      <ul>
-      <% @rating.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= error_messages_for(@rating) %>
 
   <div class="field">
     <%= f.label :max_score %><br>
     <%= f.number_field :max_score %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Сохранить' %>
   </div>
 <% end %>

@@ -2,7 +2,13 @@ class User < ActiveRecord::Base
 	self.primary_key = 'id'
 
   ROLES = %w(Студент Преподаватель Администратор)
+  ROLES_VALUES = { ROLES[0] => 0, ROLES[1] => 1, ROLES[2] => 2 }
   has_secure_password
+
+	belongs_to :group
+	has_and_belongs_to_many :disciplines
+	has_many :documents
+	has_one :student_rating_element
 
   before_validation :set_default_role
 

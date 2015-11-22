@@ -1,4 +1,5 @@
 class DisciplinesController < ApplicationController
+	before_action :check_user
   before_action :set_discipline, only: [:show, :edit, :update, :destroy]
 
   # GET /disciplines
@@ -69,6 +70,6 @@ class DisciplinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discipline_params
-      params.require(:discipline).permit(:title)
+      params.require(:discipline).permit(:title, :group_id)
     end
 end

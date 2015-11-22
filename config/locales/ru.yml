@@ -8,8 +8,44 @@ ru:
         lastname: Фамилия
         firstname: Имя
         patronymic: Отчество
-        email: Адрес эл. почты
+        email: E-mail
         role: Роль
         fio: ФИО
+        group_id: Группа
+      group:
+        numer: Номер
+      discipline:
+        title: Название
+        rating_id: Рейтинг
+        group_id: Группа
+      page:
+        title: Название
+        content: Содержимое
+        discipline_id: Дисциплина
+      section:
+        title: Название
+        content: Содержимое
+        page_id: Страница
+      document:
+        title: Название
+        file: Файл
+        user_id: Кто загрузил
+      rating:
+        max_score: Максимальное значение
+        discipline_id: Дисциплина
+      rating_element:
+        title: Название
+        score: Значение
+        rating_id: Рейтинг
+      student_rating_element:
+        value: Значение
+        user_id: Студент
     models:
       user: Пользователь
+      group: Учебная группа
+      discipline: Дисциплина
+      page: Страница
+      section: Раздел
+      document: Файл
+      rating: Рейтинг
+      rating_element: Элемент рейтинга

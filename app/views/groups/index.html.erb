@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1>Все группы</h1>
 
-<h1>Listing Groups</h1>
-
-<table>
+<table class="table table-condensed table-bordered table-hover all_users">
   <thead>
     <tr>
-      <th>Numer</th>
+      <th><%= Group.human_attribute_name(:numer) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +12,9 @@
     <% @groups.each do |group| %>
       <tr>
         <td><%= group.numer %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', group %></td>
+        <td><%= link_to 'Редактировать', edit_group_path(group) %></td>
+        <td><%= link_to 'Удалить', group, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'Создание группы', new_group_path %>

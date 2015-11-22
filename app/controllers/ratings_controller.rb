@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+	before_action :check_user
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   # GET /ratings

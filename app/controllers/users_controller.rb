@@ -27,6 +27,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    if @user.role == 0 || @user.role.blank?
+      engl_fio = User.generate_login(@user.lastname, @user.firstname, @user.patronymic)
+      num = User.where("login LIKE ?", engl_fio + '%').last.login.from(3).to(-1).to_i + 1
+      @user.login = engl_fio + num.to_s
+    end
+    new_pass = SecureRandom.urlsafe_base64.first(10)
+    @user.password = new_pass
+    @user.password_confirmation = new_pass # разобраться с генерацией пароля.
+    @user.email = @user.login + '@mami.ru'
+    @user.id = UUID.generate
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'Пользователь создан.' }
@@ -63,14 +74,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:login, :password, :email, :lastname, :firstname, :patronymic)
-      # если админ, то добавить :is_active
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:login, :password, :email, :lastname, :firstname, :patronymic)
+    # если админ, то добавить :is_active
+  end
 end

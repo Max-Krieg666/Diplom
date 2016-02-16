@@ -14,7 +14,7 @@
 			  <% end %>
 		  </ul>
 	    <ul class="nav navbar-nav navbar-right">
-		    <% if @current_user.blank? %>
+		    <% unless @current_user %>
 	        <li><%= link_to 'Регистрация', new_user_path %></li>
 	        <li><%= link_to 'Вход', login_path %></li>
 		    <% else %>

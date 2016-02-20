@@ -1,6 +1,6 @@
 <h1>Все страницы</h1>
 
-<table class="table table-condensed table-bordered table-hover all_users">
+<table class="table table-condensed table-bordered table-hover all_pages">
   <thead>
     <tr>
       <th><%= Page.human_attribute_name(:title) %></th>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= page.title %></td>
         <td><%= page.content %></td>
-        <td><%= link_to 'Показать', page %></td>
-        <td><%= link_to 'Редактировать', edit_page_path(page) %></td>
-        <td><%= link_to 'Удалить', page, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t(:show), page %></td>
+        <td><%= link_to t(:edit), edit_page_path(page) %></td>
+        <td><%= link_to t(:destroy), page, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
   </tbody>

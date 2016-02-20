@@ -14,9 +14,9 @@
       <tr>
         <td><%= rating.discipline.title %></td>
         <td><%= rating.max_score %></td>
-        <td><%= link_to 'Показать', rating %></td>
-        <td><%= link_to 'Редактировать', edit_rating_path(rating) %></td>
-        <td><%= link_to 'Удалить', rating, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t(:show), rating %></td>
+        <td><%= link_to t(:edit), edit_rating_path(rating) %></td>
+        <td><%= link_to t(:destroy), rating, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -14,9 +14,9 @@
       <tr>
         <td><%= section.title %></td>
         <td><%= section.content %></td>
-        <td><%= link_to 'Показать', section %></td>
-        <td><%= link_to 'Редактировать', edit_section_path(section) %></td>
-        <td><%= link_to 'Удалить', section, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t(:show), section %></td>
+        <td><%= link_to t(:edit), edit_section_path(section) %></td>
+        <td><%= link_to t(:destroy), section, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
   </tbody>

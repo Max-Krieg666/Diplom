@@ -1,6 +1,6 @@
 <h1>Все группы</h1>
 
-<table class="table table-condensed table-bordered table-hover all_users">
+<table class="table table-condensed table-bordered table-hover all_groups">
   <thead>
     <tr>
       <th><%= Group.human_attribute_name(:numer) %></th>
@@ -12,9 +12,9 @@
     <% @groups.each do |group| %>
       <tr>
         <td><%= group.numer %></td>
-        <td><%= link_to 'Показать', group %></td>
-        <td><%= link_to 'Редактировать', edit_group_path(group) %></td>
-        <td><%= link_to 'Удалить', group, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t(:show), group %></td>
+        <td><%= link_to t(:edit), edit_group_path(group) %></td>
+        <td><%= link_to t(:destroy), group, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
   </tbody>

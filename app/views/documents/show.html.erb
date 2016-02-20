@@ -8,5 +8,5 @@
   <%= @document.file %>
 </p>
 
-<%= link_to 'Редактировать', edit_document_path(@document) %> |
-<%= link_to 'Назад', documents_path %>
+<%= link_to t(:edit), edit_document_path(@document) %> |
+<%= link_to t(:back), documents_path %>

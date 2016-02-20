@@ -1,4 +1,10 @@
 ru:
+  edit: Редактировать
+  back: Назад
+  save: Сохранить
+  show: Показать
+  destroy: Удалить
+  confirm: 'Вы уверены?'
   activerecord:
     attributes:
       user:
@@ -18,6 +24,7 @@ ru:
         title: Название
         rating_id: Рейтинг
         group_id: Группа
+        teacher: Преподаватель
       page:
         title: Название
         content: Содержимое

@@ -3,5 +3,5 @@
   <%= @rating.max_score %>
 </p>
 
-<%= link_to 'Редактировать', edit_rating_path(@rating) %> |
-<%= link_to 'Назад', ratings_path %>
+<%= link_to t(:edit), edit_rating_path(@rating) %> |
+<%= link_to t(:back), ratings_path %>

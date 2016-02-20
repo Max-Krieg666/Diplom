@@ -1,7 +1,22 @@
-<p>
-  <strong>Numer:</strong>
-  <%= @group.numer %>
-</p>
+<h1>Учебная группа №<%= @group.numer %></h1>
 
-<%= link_to 'Редактировать', edit_group_path(@group) %> |
-<%= link_to 'Назад', groups_path %>
+<table class="table table-condensed table-bordered table-hover one_group">
+  <thead>
+  <tr>
+    <th><%= User.human_attribute_name(:login) %></th>
+    <th><%= User.human_attribute_name(:fio) %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.login %></td>
+        <td><%= student.fio %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t(:edit), edit_group_path(@group) %> |
+<%= link_to t(:back), groups_path %>

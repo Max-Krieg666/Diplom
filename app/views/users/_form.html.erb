@@ -25,14 +25,20 @@
     <%= f.label User.human_attribute_name(:patronymic) %><br>
     <%= f.text_field :patronymic, class: 'form-control' %>
   </div>
-	<% if @current_user.presence && @current_user.administrator? %>
-	  <div class="form-group">
-	    <%= f.label User.human_attribute_name(:role) %><br>
-	    <%= f.select :role, options_for_select(User::ROLES_VALUES), class: 'form-control' %>
-	  </div>
+  <% if @current_user.presence && @current_user.administrator? %>
+    <div class="form-group">
+      <%= f.label User.human_attribute_name(:role) %><br>
+      <%= f.select :role, options_for_select(User::ROLES_VALUES), class: 'form-control' %>
+    </div>
+  <% end %>
+  <% if @current_user.presence && @current_user.administrator? %>
+    <div class="form-group">
+      <%= f.label User.human_attribute_name(:group_id) %><br>
+      <%= select_group('user[group_id]', @user.group_id) %>
+    </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit 'Сохранить' %>
+    <%= f.submit t(:save) %>
   </div>
 <% end %>

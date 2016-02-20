@@ -11,7 +11,12 @@
 			  <li><%= link_to 'Все пользователи', users_path %></li>
 			  <% if @current_user.presence && @current_user.role == 0 %>
 			    <li><%= link_to 'Моя группа', @current_user.group %></li>
+					<li><%= link_to 'Мои дисциплины', student_disciplines_path %></li>
+					<%# TODO сделать эти пути%>
 			  <% end %>
+				<% if @current_user.presence && @current_user.role == 1 %>
+						<li><%= link_to 'Мои дисциплины', teacher_disciplines_path %></li>
+				<% end %>
 		  </ul>
 	    <ul class="nav navbar-nav navbar-right">
 		    <% unless @current_user %>

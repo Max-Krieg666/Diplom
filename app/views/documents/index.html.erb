@@ -1,6 +1,6 @@
 <h1>Все документы</h1>
 
-<table class="table table-condensed table-bordered table-hover all_users">
+<table class="table table-condensed table-bordered table-hover all_docs">
   <thead>
     <tr>
       <th><%= Document.human_attribute_name(:title) %></th>
@@ -16,9 +16,9 @@
         <td><%= document.title %></td>
         <td><%= document.file %></td>
         <td><%= document.user.login %></td>
-        <td><%= link_to 'Показать', document %></td>
-        <td><%= link_to 'Редактировать', edit_document_path(document) %></td>
-        <td><%= link_to 'Удалить', document, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t(:show), document %></td>
+        <td><%= link_to t(:edit), edit_document_path(document) %></td>
+        <td><%= link_to t(:destroy), document, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
   </tbody>

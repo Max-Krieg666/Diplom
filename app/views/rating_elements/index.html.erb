@@ -14,9 +14,9 @@
       <tr>
         <td><%= rating_element.title %></td>
         <td><%= rating_element.score %></td>
-        <td><%= link_to 'Показать', rating_element %></td>
-        <td><%= link_to 'Редактировать', edit_rating_element_path(rating_element) %></td>
-        <td><%= link_to 'Удалить', rating_element, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t(:show), rating_element %></td>
+        <td><%= link_to t(:edit), edit_rating_element_path(rating_element) %></td>
+        <td><%= link_to t(:destroy), rating_element, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
   </tbody>

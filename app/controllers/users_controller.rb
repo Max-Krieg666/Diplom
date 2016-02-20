@@ -26,10 +26,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     if @user.role == 0 || @user.role.blank?
       engl_fio = User.generate_login(@user.lastname, @user.firstname, @user.patronymic)
-      num = User.where("login LIKE ?", engl_fio + '%').last.login.from(3).to(-1).to_i + 1
+      old = User.where("login LIKE ?", engl_fio + '%').last
+      if old
+        num = old.login.from(3).to(-1).to_i + 1
+      else
+        num = 1
+      end
       @user.login = engl_fio + num.to_s
     end
     new_pass = SecureRandom.urlsafe_base64.first(10)
@@ -37,6 +41,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = new_pass # разобраться с генерацией пароля.
     @user.email = @user.login + '@mami.ru'
     @user.id = UUID.generate
+    @user.group = Group.find(user_params[:group_id])
 
     respond_to do |format|
       if @user.save
@@ -81,7 +86,8 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:login, :password, :email, :lastname, :firstname, :patronymic)
-    # если админ, то добавить :is_active
+    fields = [:login, :password, :email, :lastname, :firstname, :patronymic, :group_id]
+    fields << :is_active if @current_user.administrator?
+    params.require(:user).permit(fields)
   end
 end

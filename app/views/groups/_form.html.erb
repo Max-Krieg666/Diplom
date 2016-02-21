@@ -1,9 +1,9 @@
 <%= form_for(@group) do |f| %>
-  <%= error_messages_for(@group) %>
+  <%#= error_messages_for(@group) %>
 
-  <div class="field">
-    <%= f.label :numer %><br>
-    <%= f.text_field :numer %>
+  <div class="form-group">
+    <%= f.label Group.human_attribute_name(:numer) %><br>
+    <%= f.text_field :numer, class: 'form-control' %>
   </div>
   <div class="actions">
     <%= f.submit t(:save) %>

@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @students = @group.users
+    @students = User.where(group_id: @group.id).order('lastname, firstname, patronymic, login')
   end
 
   # GET /groups/new
@@ -27,10 +27,11 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    @group.id = UUID.generate
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to @group, notice: 'Учебная группа успешно создана.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.html { redirect_to @group, notice: 'Учебная группа успешно отредактирована.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to groups_url, notice: 'Учебная группа успешно удалена.' }
       format.json { head :no_content }
     end
   end

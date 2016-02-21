@@ -13,7 +13,7 @@
     <% @disciplines.each do |discipline| %>
       <tr>
         <td><%= discipline.title %></td>
-        <td><%= discipline.user.fio %></td>
+        <td><%= discipline.teacher %></td>
         <td><%= link_to t(:show), discipline %></td>
         <td><%= link_to t(:edit), edit_discipline_path(discipline) %></td>
         <td><%= link_to t(:destroy), discipline, method: :delete, data: { confirm: t(:confirm) } %></td>

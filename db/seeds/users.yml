@@ -15,6 +15,22 @@
   patronymic: Преподавателевич
   email: teacher@mail.mami.ru
   role: 1
+- id: 13311930-bb97-0133-71cd-68f728c69693
+  login: mmuradov
+  password: muradov
+  lastname: Мурадов
+  firstname: Мурад
+  patronymic: Бекханович
+  email: mmuradov@mail.mami.ru
+  role: 1
+- id: 13752860-bb97-0133-71cd-68f728c69693
+  login: vsikorsky
+  password: sikorsky
+  lastname: Сикорский
+  firstname: Венедикт
+  patronymic: Борисович
+  email: vsikorsky@mail.mami.ru
+  role: 1
 - id: c7ffeb00-6ddd-0133-5122-001e9006257f
   login: tps1
   password: test_user
@@ -24,3 +40,48 @@
   email: tps1@mail.mami.ru
   role: 0
   group_id: 136de260-733b-0133-5123-001e9006257f
+- id: 46fd4fd0-bb96-0133-71cd-68f728c69693
+  login: edg1
+  password: edg1edg1
+  lastname: Емельянов
+  firstname: Дмитрий
+  patronymic: Григорьевич
+  email: edg1@mail.mami.ru
+  role: 0
+  group_id: 136de260-733b-0133-5123-001e9006257f
+- id: 3e937290-bb96-0133-71cd-68f728c69693
+  login: msl1
+  password: msl1msl1
+  lastname: Макаренко
+  firstname: Сергей
+  patronymic: Леонидович
+  email: msl1@mail.mami.ru
+  role: 0
+  group_id: 136de260-733b-0133-5123-001e9006257f
+- id: 7f611560-bb96-0133-71cd-68f728c69693
+  login: tps2
+  password: tps2tps2
+  lastname: Трипольский
+  firstname: Петр
+  patronymic: Станиславович
+  email: tps2@mail.mami.ru
+  role: 0
+  group_id: 147c9380-733b-0133-5123-001e9006257f
+- id: c5b32880-bb96-0133-71cd-68f728c69693
+  login: tps3
+  password: tps3tps3
+  lastname: Тернушин
+  firstname: Павел
+  patronymic: Сергеевич
+  email: tps3@mail.mami.ru
+  role: 0
+  group_id: 147c9380-733b-0133-5123-001e9006257f
+- id: c5faea60-bb96-0133-71cd-68f728c69693
+  login: rsa1
+  password: rsa1rsa1
+  lastname: Рыбакова
+  firstname: Сабина
+  patronymic: Алексеевна
+  email: rsa1@mail.mami.ru
+  role: 0
+  group_id: 147c9380-733b-0133-5123-001e9006257f

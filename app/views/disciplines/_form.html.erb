@@ -1,5 +1,5 @@
 <%= form_for(@discipline) do |f| %>
-  <%#= error_messages_for(@discipline) %>
+  <%= @discipline.errors.messages %>
 
   <div class="form-group">
     <%= f.label Discipline.human_attribute_name(:title) %><br>
@@ -10,8 +10,9 @@
     <%= select_group('discipline[group_id]', @discipline.group_id) %>
   </div>
   <div class="form-group">
-    <%= f.label Discipline.human_attribute_name(:teacher_id) %><br>
-    <%= select_teacher('discipline[teacher_id]', @discipline.teacher_id) %>
+    <%= f.label Discipline.human_attribute_name(:teachers) %><br>
+    <%#= select_teacher('discipline[user_id]', @discipline.user_id) %>
+    <%# TODO сделать множественный выбор !!! %>
   </div>
   <div class="form-group">
   </div>

@@ -25,6 +25,7 @@ ru:
         rating_id: Рейтинг
         group_id: Группа
         teacher: Преподаватель
+        teachers: Преподаватели
       page:
         title: Название
         content: Содержимое

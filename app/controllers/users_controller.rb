@@ -36,9 +36,8 @@ class UsersController < ApplicationController
       end
       @user.login = engl_fio + num.to_s
     end
-    new_pass = SecureRandom.urlsafe_base64.first(10)
-    @user.password = new_pass
-    @user.password_confirmation = new_pass # разобраться с генерацией пароля.
+    @user.password = login*2
+    @user.password_confirmation = login*2
     @user.email = @user.login + '@mami.ru'
     @user.id = UUID.generate
     @user.group = Group.find(user_params[:group_id])

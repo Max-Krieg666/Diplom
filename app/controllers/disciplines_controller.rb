@@ -26,10 +26,19 @@ class DisciplinesController < ApplicationController
   # POST /disciplines.json
   def create
     @discipline = Discipline.new(discipline_params)
-
+    @discipline.id = UUID.generate
+    @discipline.group = Group.find(discipline_params[:group_id])
+    @rating = Rating.create(id: UUID.generate, max_score: 100, discipline_id:  @discipline.id)
+    @discipline.rating_id = @rating.discipline_id
+    # @discipline.users = User.find(discipline_params[:teachers_id])
+    @discipline.users = []
+    @discipline.users << User.find('13311930-bb97-0133-71cd-68f728c69693')
+    @discipline.users << User.find('13752860-bb97-0133-71cd-68f728c69693')
+    # TODO разобраться с добавлением пользователей (преподавателей) к дисциплине
+    raise
     respond_to do |format|
       if @discipline.save
-        format.html { redirect_to @discipline, notice: 'Discipline was successfully created.' }
+        format.html { redirect_to @discipline, notice: 'Дисциплина успешно создана.' }
         format.json { render :show, status: :created, location: @discipline }
       else
         format.html { render :new }
@@ -43,7 +52,7 @@ class DisciplinesController < ApplicationController
   def update
     respond_to do |format|
       if @discipline.update(discipline_params)
-        format.html { redirect_to @discipline, notice: 'Discipline was successfully updated.' }
+        format.html { redirect_to @discipline, notice: 'Дисциплина успешно изменена.' }
         format.json { render :show, status: :ok, location: @discipline }
       else
         format.html { render :edit }
@@ -57,7 +66,7 @@ class DisciplinesController < ApplicationController
   def destroy
     @discipline.destroy
     respond_to do |format|
-      format.html { redirect_to disciplines_url, notice: 'Discipline was successfully destroyed.' }
+      format.html { redirect_to disciplines_url, notice: 'Дисциплина успешно удалена.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +79,6 @@ class DisciplinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discipline_params
-      params.require(:discipline).permit(:title, :group_id)
+      params.require(:discipline).permit(:title, :group_id, :teachers_id)
     end
 end

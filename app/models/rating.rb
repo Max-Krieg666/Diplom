@@ -4,5 +4,5 @@ class Rating < ActiveRecord::Base
 	belongs_to :discipline
 	has_many :rating_elements
 
-	validates :max_score, presence: true, maximum: 100
+	validates :max_score, presence: true #, maximum: 100
 end

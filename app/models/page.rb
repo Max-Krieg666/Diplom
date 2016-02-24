@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-	self.primary_key = 'id'
+	include UuidHelper
 
 	has_many :sections
 	belongs_to :discipline

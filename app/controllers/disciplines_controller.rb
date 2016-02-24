@@ -26,18 +26,15 @@ class DisciplinesController < ApplicationController
   # POST /disciplines.json
   def create
     @discipline = Discipline.new(discipline_params)
-    @discipline.id = UUID.generate
     @discipline.group = Group.find(discipline_params[:group_id])
-    @rating = Rating.create(id: UUID.generate, max_score: 100, discipline_id:  @discipline.id)
+    @rating = Rating.create(max_score: 100, discipline_id:  @discipline.id)
     @discipline.rating_id = @rating.discipline_id
-    # @discipline.users = User.find(discipline_params[:teachers_id])
-    @discipline.users = []
-    @discipline.users << User.find('13311930-bb97-0133-71cd-68f728c69693')
-    @discipline.users << User.find('13752860-bb97-0133-71cd-68f728c69693')
     # TODO разобраться с добавлением пользователей (преподавателей) к дисциплине
-    raise
     respond_to do |format|
       if @discipline.save
+        # @discipline.users = User.find(discipline_params[:teachers_id])
+        @discipline.users << User.find('13311930-bb97-0133-71cd-68f728c69693')
+        @discipline.users << User.find('13752860-bb97-0133-71cd-68f728c69693')
         format.html { redirect_to @discipline, notice: 'Дисциплина успешно создана.' }
         format.json { render :show, status: :created, location: @discipline }
       else

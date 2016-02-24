@@ -1,5 +1,5 @@
 class Rating < ActiveRecord::Base
-	self.primary_key = 'id'
+	include UuidHelper
 
 	belongs_to :discipline
 	has_many :rating_elements

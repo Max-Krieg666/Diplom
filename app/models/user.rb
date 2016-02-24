@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	self.primary_key = 'id'
+  include UuidHelper
 
   ROLES = %w(Студент Преподаватель Администратор)
   ROLES_VALUES = { ROLES[0] => 0, ROLES[1] => 1, ROLES[2] => 2 }

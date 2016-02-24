@@ -1,6 +1,7 @@
 class CreateRatingElements < ActiveRecord::Migration
   def change
-    create_table :rating_elements, id: :uuid, default: 'uuid_generate_v4()' do |t|
+    create_table :rating_elements, id: false do |t|
+      t.string :id, primary: true, null: false
       t.string :title
       t.integer :score
 			t.string :rating_id

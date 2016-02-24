@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     @user.password = login*2
     @user.password_confirmation = login*2
     @user.email = @user.login + '@mami.ru'
-    @user.id = UUID.generate
     @user.group = Group.find(user_params[:group_id])
 
     respond_to do |format|

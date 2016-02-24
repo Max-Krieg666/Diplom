@@ -8,9 +8,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'rails-i18n'
+gem 'uuidtools'
 
 # Icons
-gem 'uuid'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 gem 'therubyracer'

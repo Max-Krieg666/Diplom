@@ -1,5 +1,5 @@
 class Section < ActiveRecord::Base
-	self.primary_key = 'id'
+	include UuidHelper
 
 	belongs_to :page
 end

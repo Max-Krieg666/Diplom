@@ -13,34 +13,77 @@
 
 ActiveRecord::Schema.define(version: 20151122092440) do
 
-# Could not dump table "disciplines" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "disciplines", id: false, force: :cascade do |t|
+    t.string   "id",         null: false
+    t.string   "title"
+    t.string   "rating_id"
+    t.string   "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "disciplines_users", id: false, force: :cascade do |t|
-    t.integer "discipline_id"
-    t.integer "user_id"
+    t.string "discipline_id"
+    t.string "user_id"
   end
 
   add_index "disciplines_users", ["discipline_id", "user_id"], name: "index_disciplines_users_on_discipline_id_and_user_id"
   add_index "disciplines_users", ["user_id"], name: "index_disciplines_users_on_user_id"
 
-# Could not dump table "documents" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "documents", id: false, force: :cascade do |t|
+    t.string   "id",                null: false
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
-# Could not dump table "groups" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "groups", id: false, force: :cascade do |t|
+    t.string   "id",         null: false
+    t.string   "numer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-# Could not dump table "pages" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "pages", id: false, force: :cascade do |t|
+    t.string   "id",            null: false
+    t.string   "title"
+    t.string   "content"
+    t.string   "discipline_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
-# Could not dump table "rating_elements" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "rating_elements", id: false, force: :cascade do |t|
+    t.string   "id",                        null: false
+    t.string   "title"
+    t.integer  "score"
+    t.string   "rating_id"
+    t.string   "student_rating_element_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
-# Could not dump table "ratings" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "ratings", id: false, force: :cascade do |t|
+    t.string   "id",            null: false
+    t.integer  "max_score"
+    t.string   "discipline_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
-# Could not dump table "sections" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "sections", id: false, force: :cascade do |t|
+    t.string   "id",         null: false
+    t.string   "title"
+    t.string   "content"
+    t.string   "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "student_rating_elements", force: :cascade do |t|
     t.integer  "value"
@@ -49,7 +92,19 @@ ActiveRecord::Schema.define(version: 20151122092440) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", id: false, force: :cascade do |t|
+    t.string   "id",                             null: false
+    t.string   "login"
+    t.string   "password_digest"
+    t.string   "lastname"
+    t.string   "firstname"
+    t.string   "patronymic"
+    t.string   "email"
+    t.integer  "role",            default: 0
+    t.string   "group_id"
+    t.boolean  "is_active",       default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
 end

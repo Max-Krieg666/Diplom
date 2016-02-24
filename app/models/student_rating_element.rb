@@ -1,5 +1,5 @@
 class StudentRatingElement < ActiveRecord::Base
-	self.primary_key = 'id'
+	include UuidHelper
 
 	has_many :rating_elements
 	belongs_to :user

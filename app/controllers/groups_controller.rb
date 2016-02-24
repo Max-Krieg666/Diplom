@@ -27,7 +27,6 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    @group.id = UUID.generate
 
     respond_to do |format|
       if @group.save

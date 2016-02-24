@@ -1,8 +1,8 @@
-class DisciplinesUsers < ActiveRecord::Migration
+class CreateDisciplinesUsersJoinTable < ActiveRecord::Migration
   def self.up
-		create_table :disciplines_users, :id => false do |t|
-			t.references :discipline
-			t.references :user
+		create_table :disciplines_users, id: false do |t|
+			t.string :discipline_id
+			t.string :user_id
 		end
 		add_index :disciplines_users, [:discipline_id, :user_id]
 		add_index :disciplines_users, :user_id

@@ -3,8 +3,11 @@ ru:
   back: Назад
   save: Сохранить
   show: Показать
+  create: Создать
   destroy: Удалить
   confirm: 'Вы уверены?'
+  prompt_select: Выберите
+  some_errors: При сохранении произошли ошибки!
   activerecord:
     attributes:
       user:

@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th><%= Discipline.human_attribute_name(:title) %></th>
+      <th><%= Discipline.human_attribute_name(:group) %></th>
       <th><%= Discipline.human_attribute_name(:teachers) %></th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
     <% @disciplines.each do |discipline| %>
       <tr>
         <td><%= discipline.title %></td>
+        <td><%= discipline.group.numer %></td>
         <td>
           <% discipline.users.each do |teacher| %>
             <div class="teacher_link">
@@ -31,4 +33,4 @@
 
 <br>
 
-<%= link_to 'Создание новой дисциплины', new_discipline_path %>
+<%= link_to t(:create), new_discipline_path %>

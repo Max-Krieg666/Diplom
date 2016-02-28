@@ -1,5 +1,5 @@
 <%= form_for(@group) do |f| %>
-  <%#= error_messages_for(@group) %>
+  <%= error_messages_for(@group) %>
 
   <div class="form-group">
     <%= f.label Group.human_attribute_name(:numer) %><br>

@@ -1,7 +1,31 @@
-<p>
-  <strong><%= Discipline.human_attribute_name(:title) %>:</strong>
-  <%= @discipline.title %>
-</p>
+<div class="discipline-show">
+  <div class="discipline-title">
+		<h1><%= @discipline.title %> <small><%= @discipline.group.numer %></small></h1>
+	</div>
+	<div class="discipline-teachers">
+		<%= label_tag Discipline.human_attribute_name(:teachers) %>:
+		<p>
+		  <% @discipline.users.each do |teacher| %>
+			  <div class="teacher_link btn btn-primary">
+			    <%= link_to teacher.fio, teacher %>
+			    <br>
+			  </div>
+			<% end %>
+		</p>
+	</div>
+  <br>
+  <br>
 
-<%= link_to t(:edit), edit_discipline_path(@discipline) %> |
-<%= link_to t(:back), disciplines_path %>
+	<div class="show_rating">
+		...Тут будет рейтинг по дисциплине
+	  <%# TODO сделать css для классов %>
+		<%# TODO привязать рейтинг %>
+	</div>
+	<br>
+	<br>
+
+  <div class="btn-group">
+		<%= link_to t(:edit), edit_discipline_path(@discipline), class: 'btn btn-default' %>
+		<%= link_to t(:back), disciplines_path, class: 'btn btn-default' %>
+  </div>
+</div>

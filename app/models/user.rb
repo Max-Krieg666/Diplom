@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   before_validation :set_default_role
 
-  validates_presence_of :login, :email, :password, :role
+  validates_presence_of :login, :email, :password, :role, :lastname, :firstname
 
   validates :login, length: { minimum: 3 ,maximum: 24 },
             uniqueness: true

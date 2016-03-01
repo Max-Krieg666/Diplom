@@ -1,36 +1,13 @@
-<h1>Все дисциплины</h1>
-
-<table class="table table-condensed table-bordered table-hover all_disciplines">
-  <thead>
-    <tr>
-      <th><%= Discipline.human_attribute_name(:title) %></th>
-      <th><%= Discipline.human_attribute_name(:group) %></th>
-      <th><%= Discipline.human_attribute_name(:teachers) %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @disciplines.each do |discipline| %>
-      <tr>
-        <td><%= discipline.title %></td>
-        <td><%= discipline.group.numer %></td>
-        <td>
-          <% discipline.users.each do |teacher| %>
-            <div class="teacher_link">
-              <%= link_to teacher.fio, teacher %>
-              <br>
-            </div>
-          <% end %>
-        </td>
-        <td><%= link_to t(:show), discipline %></td>
-        <td><%= link_to t(:edit), edit_discipline_path(discipline) %></td>
-        <td><%= link_to t(:destroy), discipline, method: :delete, data: { confirm: t(:confirm) } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to t(:create), new_discipline_path %>
+<% if @current_user.role == 2 %>
+  <%= render partial: 'index_admin', locals: { disciplines: @disciplines } %>
+<% elsif @current_user.role == 1 %>
+  <div>
+    <h1><%= t(:my_disciplines) %></h1>
+    <%= render partial: 'index_teacher', locals: { disciplines: @current_user.disciplines } %>
+  </div>
+<% else %>
+  <div>
+    <h1><%= t(:my_disciplines) %></h1>
+    <%= render partial: 'index_student', locals: { disciplines: @current_user.group.disciplines } %>
+  </div>
+<% end %>

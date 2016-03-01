@@ -1,0 +1,38 @@
+<div class="disciplines_administrator">
+  <h1><%= t(:all_disciplines) %></h1>
+
+  <table class="table table-condensed table-bordered table-hover all_disciplines">
+    <thead>
+      <tr>
+        <th><%= Discipline.human_attribute_name(:title) %></th>
+        <th><%= Discipline.human_attribute_name(:group) %></th>
+        <th><%= Discipline.human_attribute_name(:teachers) %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% disciplines.each do |discipline| %>
+        <tr>
+          <td><%= discipline.title %></td>
+          <td><%= link_to discipline.group.numer, discipline.group %></td>
+          <td>
+            <% discipline.users.each do |teacher| %>
+              <div class="teacher_link">
+                <%= link_to teacher.fio, teacher %>
+                <br>
+              </div>
+            <% end %>
+          </td>
+          <td><%= link_to t(:show), discipline %></td>
+          <td><%= link_to t(:edit), edit_discipline_path(discipline) %></td>
+          <td><%= link_to t(:destroy), discipline, method: :delete, data: { confirm: t(:confirm) } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to t(:create), new_discipline_path %>
+</div>

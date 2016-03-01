@@ -1,0 +1,30 @@
+<div class="disciplines_teacher">
+  <table class="table table-condensed table-bordered table-hover all_disciplines">
+    <thead>
+      <tr>
+        <th><%= Discipline.human_attribute_name(:title) %></th>
+        <th><%= Discipline.human_attribute_name(:group) %></th>
+        <th><%= Discipline.human_attribute_name(:teachers) %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% disciplines.each do |discipline| %>
+        <tr>
+          <td><%= discipline.title %></td>
+          <td><%= link_to discipline.group.numer, discipline.group %></td>
+          <td>
+            <% discipline.users.each do |teacher| %>
+              <div class="teacher_link">
+                <%= link_to teacher.fio, teacher %>
+                <br>
+              </div>
+            <% end %>
+          </td>
+          <td><%= link_to t(:show), discipline %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

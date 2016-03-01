@@ -1,11 +1,8 @@
+<h1><%= @user.fio %> <small><%= @user.login %></small></h1>
+<br>
 <p>
   <strong><%= User.human_attribute_name(:login) %>:</strong>
   <%= @user.login %>
-</p>
-
-<p>
-  <strong><%= User.human_attribute_name(:fio) %>:</strong>
-  <%= @user.fio %>
 </p>
 
 <p>
@@ -19,11 +16,13 @@
 </p>
 
 <% if @user.group_id && @user.role == 0 %>
-  <p>
-    <strong><%= User.human_attribute_name(:group_id) %>:</strong>
-    <%= @user.group.numer %>
-  </p>
+  <%= render 'show_student' %>
+<% elsif @user.role == 1 %>
+  <br>
+  <%= render 'show_teacher' %>
 <% end %>
 
-<%= link_to t(:edit), edit_user_path(@user) %> |
-<%= link_to t(:back), users_path %>
+<% if @current_user.role == 2 || @user.id == @current_user.id %>
+  <%= link_to t(:edit), edit_user_path(@user) %> |
+  <%= link_to t(:back), users_path %>
+<% end %>

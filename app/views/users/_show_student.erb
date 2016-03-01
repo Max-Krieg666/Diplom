@@ -1,0 +1,17 @@
+<div class="show_student">
+  <% @group = @user.group %>
+  <p>
+    <strong><%= User.human_attribute_name(:group) %>:</strong>
+    <%= link_to @group.numer, @group %>
+  </p>
+
+  <br>
+
+  <% if @user.id == @current_user.id %>
+    <h4><%= t(:my_disciplines) %>:</h4>
+  <% else %>
+    <h4><%= t(:this_student_disciplines) %>:</h4>
+  <% end %>
+
+  <%= render partial: 'disciplines/index_student', locals: { disciplines: @group.disciplines } %>
+</div>

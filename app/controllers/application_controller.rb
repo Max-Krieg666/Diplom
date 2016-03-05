@@ -17,28 +17,28 @@ class ApplicationController < ActionController::Base
 
     def require_login
       if @current_user
-        flash[:danger] = 'Требуется авторизация'
+        flash[:danger] = I18n.t(:need_authorize)
         redirect_to login_path
       end
     end
 
     def check_user
       if @current_user.blank?
-        flash[:danger] = 'Необходимо войти в систему для просмотра данной страницы!'
+        flash[:danger] = I18n.t(:login_please)
         redirect_to root_path
       end
     end
 
     def manager_permission
       unless @current_user.try(:teacher?)
-        flash[:danger] = 'Недостаточно прав'
+				flash[:danger] = I18n.t(:permission_denied)
         redirect_to login_path
       end
     end
 
     def admin_permission
       unless @current_user.try(:administrator?)
-        flash[:danger] = 'Недостаточно прав'
+        flash[:danger] = I18n.t(:permission_denied)
         redirect_to login_path
       end
     end

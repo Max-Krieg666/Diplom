@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :check_user
+	before_action :admin_permission, only: [:new, :create, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -35,12 +36,15 @@ class UsersController < ApplicationController
         num = 1
       end
       @user.login = engl_fio + num.to_s
-    end
-    @user.password = login*2
-    @user.password_confirmation = login*2
-    @user.email = @user.login + '@mami.ru'
-    @user.group = Group.find(user_params[:group_id])
-
+		end
+		psw = SecureRandom.urlsafe_base64.first(10)
+		@user.password = psw
+		@user.password_confirmation = psw
+		@user.email = @user.login + '@mami.ru'
+		@user.group = Group.find(user_params[:group_id])
+		file = File.new(Rails.root.join('tmp', "#{@user.login}-#{SecureRandom.hex(7)}.txt"), 'w')
+		file.puts("LOGIN: #{@user.login} --- PASSWORD: #{psw}")
+    file.close
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'Пользователь создан.' }
@@ -77,12 +81,10 @@ class UsersController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
-  end
+	end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     fields = [:login, :password, :email, :lastname, :firstname, :patronymic, :group_id]
     fields << :is_active if @current_user.administrator?

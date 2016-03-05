@@ -31,15 +31,11 @@ ActiveRecord::Schema.define(version: 20151122092440) do
   add_index "disciplines_users", ["user_id"], name: "index_disciplines_users_on_user_id"
 
   create_table "documents", id: false, force: :cascade do |t|
-    t.string   "id",                null: false
-    t.string   "title"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+    t.string   "id",         null: false
+    t.string   "file"
     t.string   "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups", id: false, force: :cascade do |t|

@@ -1,75 +1,51 @@
 class DocumentsController < ApplicationController
 	before_action :check_user
-  before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_document, only: [:show, :edit, :destroy]
 
-  # GET /documents
-  # GET /documents.json
   def index
     @documents = Document.all
+		# render :json => @documents.collect { |p| p.to_jq_upload }.to_json
   end
 
-  # GET /documents/1
-  # GET /documents/1.json
   def show
   end
 
-  # GET /documents/new
   def new
-    @document = Document.new
   end
 
-  # GET /documents/1/edit
-  def edit
-  end
-
-  # POST /documents
-  # POST /documents.json
   def create
-    @document = Document.new(document_params)
-
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
-      else
-        format.html { render :new }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
-    end
+		p_attr = params[:document]
+		p_attr[:file] = params[:document][:file].first if params[:document][:file].class == Array
+		@document = Document.new(p_attr)
+		@document.user_id = @current_user.id
+		if @document.save
+			flash[:success] = 'Файл успешно загружен.'
+			respond_to do |format|
+				format.html {
+					render :json => [@document.to_jq_upload].to_json,
+								 :content_type => 'text/html',
+								 :layout => false
+				}
+				format.json {
+					render :json => [@document.to_jq_upload].to_json
+				}
+			end
+		else
+			render :json => [{:error => 'Ошибка при загрузке файла'}], :status => 304
+		end
   end
 
-  # PATCH/PUT /documents/1
-  # PATCH/PUT /documents/1.json
-  def update
-    respond_to do |format|
-      if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
-        format.json { render :show, status: :ok, location: @document }
-      else
-        format.html { render :edit }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /documents/1
-  # DELETE /documents/1.json
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to documents_url, notice: 'Document was successfully destroyed.' }
+      format.html { redirect_to documents_url, notice: 'Файл удалён.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_document
-      @document = Document.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def document_params
-      params.require(:document).permit(:title, :file)
-    end
+	def set_document
+		@document = Document.find(params[:id])
+	end
 end

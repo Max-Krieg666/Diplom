@@ -1,5 +1,6 @@
 class DisciplinesController < ApplicationController
 	before_action :check_user
+	before_action :admin_permission, only: [:new, :create, :destroy]
   before_action :set_discipline, only: [:show, :edit, :update, :destroy]
 	before_action :set_teachers, only: [:show, :edit, :update, :new, :create]
 

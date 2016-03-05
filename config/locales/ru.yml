@@ -1,5 +1,6 @@
 ru:
   registration: Регистрация
+  invalid_username_or_password: Неверное имя пользователя или пароль
   login: Вход
   logout: Выход
   profile: Профиль
@@ -9,6 +10,12 @@ ru:
   show: Показать
   create: Создать
   destroy: Удалить
+  cancel: Отменить
+  permission_denied: Доступ запрещён
+  need_authorize: Требуется авторизация
+  authorize_complete: Авторизация прошла успешно
+  exit_complete: Выход выполнен
+  login_please: Необходимо войти в систему для просмотра данной страницы!
   confirm: 'Вы уверены?'
   prompt_select: Выберите
   some_errors: При сохранении произошли ошибки!
@@ -18,7 +25,13 @@ ru:
   this_student_disciplines: Дисциплины студента
   all_users: Все пользователи
   my_group: Моя группа
+  my_documents: Загруженные файлы
+  document_upload: Загрузка файлов
+  choose_files: Выберите файлы
+  start_upload: Начать загрузку
+  cancel_upload: Отменить загрузку
   all_groups: Все группы
+  all_documents: Все файлы
   activerecord:
     attributes:
       user:

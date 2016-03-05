@@ -21,7 +21,7 @@
   <% end %>
   <% if @current_user.presence && @current_user.administrator? %>
     <div class="form-group">
-      <%= f.label User.human_attribute_name(:group_id) %><br>
+      <%= f.label User.human_attribute_name(:group) %><br>
       <%= select_group('user[group_id]', @user.group_id) %>
     </div>
   <% end %>

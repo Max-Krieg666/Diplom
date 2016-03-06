@@ -1,38 +1,28 @@
 class DocumentsController < ApplicationController
 	before_action :check_user
-  before_action :set_document, only: [:show, :edit, :destroy]
+  before_action :set_document, only: [:destroy]
 
   def index
     @documents = Document.all
-		# render :json => @documents.collect { |p| p.to_jq_upload }.to_json
-  end
-
-  def show
   end
 
   def new
   end
 
   def create
-		p_attr = params[:document]
-		p_attr[:file] = params[:document][:file].first if params[:document][:file].class == Array
-		@document = Document.new(p_attr)
-		@document.user_id = @current_user.id
-		if @document.save
-			flash[:success] = 'Файл успешно загружен.'
-			respond_to do |format|
-				format.html {
-					render :json => [@document.to_jq_upload].to_json,
-								 :content_type => 'text/html',
-								 :layout => false
-				}
-				format.json {
-					render :json => [@document.to_jq_upload].to_json
-				}
+		p_attr = document_params
+		files = p_attr[:file]
+		count = files.size
+		for i in 0...count
+			@document = Document.new(file: files[i])
+			@document.user_id = @current_user.id
+			unless @document.save
+				flash[:error] = 'Ошибка при загрузке файла ' + files[i].original_filename
+				render :new
 			end
-		else
-			render :json => [{:error => 'Ошибка при загрузке файла'}], :status => 304
 		end
+		flash[:success] = "#{count} #{Russian.p(count, "файл успешно загружен", "файла успешно загружено", "файлов успешно загружено")}."
+		redirect_to documents_url
   end
 
   def destroy
@@ -47,5 +37,9 @@ class DocumentsController < ApplicationController
 
 	def set_document
 		@document = Document.find(params[:id])
+	end
+
+	def document_params
+		params.require(:document).permit({file: []})
 	end
 end

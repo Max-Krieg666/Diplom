@@ -11,6 +11,7 @@ ru:
   create: Создать
   destroy: Удалить
   cancel: Отменить
+  download: Загрузить
   permission_denied: Доступ запрещён
   need_authorize: Требуется авторизация
   authorize_complete: Авторизация прошла успешно

@@ -6,13 +6,15 @@ class Document < ActiveRecord::Base
 
 	mount_uploader :file, Uploader
 
-	def to_jq_upload
-		{
-			"name" => read_attribute(:file),
-			"size" => file.size,
-			"url" => file.url,
-			"delete_url" => "document#{id}",
-			"delete_type" => "DELETE"
-		}
+	def file_title
+		read_attribute(:file)
+	end
+
+	def file_size
+		file.size
+	end
+
+	def file_url
+		file.url
 	end
 end

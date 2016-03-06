@@ -11,13 +11,13 @@ gem 'bootstrap-sass'
 
 # internationalize
 gem 'rails-i18n'
+gem 'russian'
 
 # uuid
 gem 'uuidtools'
 
 # file upload
 gem 'carrierwave'
-gem 'jquery-fileupload-rails'
 
 # icons
 gem 'font-awesome-rails'

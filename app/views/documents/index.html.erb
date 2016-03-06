@@ -10,11 +10,12 @@
   </thead>
 
   <tbody>
+    <%#TODO сделать просмотр страницы для препода и пользователя%>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= document.file %></td>
+        <td><%= document.file_title %></td>
         <td><%= document.user.login %></td>
-        <td><%= link_to t(:show), document %></td>
+        <td><%= link_to t(:download), document.file_url, target: "_blank" %></td>
         <td><%= link_to t(:destroy), document, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>

@@ -1,0 +1,22 @@
+<h4><%= t(:my_documents) %>:</h4>
+
+<table class="table table-condensed table-bordered table-hover all_docs">
+  <thead>
+	  <tr>
+	    <th><%= Document.human_attribute_name(:file) %></th>
+	    <th><%= Document.human_attribute_name(:file_size) %></th>
+	    <th colspan="2"></th>
+	  </tr>
+  </thead>
+
+  <tbody>
+	  <% documents.each do |document| %>
+	    <tr>
+	      <td><%= document.file_name %></td>
+	      <td><%= document.file_size %></td>
+	      <td><%= link_to t(:download), document.file_url, target: "_blank" %></td>
+	      <td><%= link_to t(:destroy), document, method: :delete, data: { confirm: t(:confirm) } %></td>
+	    </tr>
+	  <% end %>
+  </tbody>
+</table>

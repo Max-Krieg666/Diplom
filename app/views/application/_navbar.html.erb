@@ -12,6 +12,7 @@
 				  <% if @current_user.role == 0 %>
 				    <li><%= link_to t(:my_group), @current_user.group %></li>
 						<li><%= link_to t(:my_disciplines), disciplines_path %></li>
+		        <li><%= link_to t(:my_documents), documents_path %></li>
 				  <% elsif @current_user.role == 1 %>
             <li><%= link_to t(:my_disciplines), disciplines_path %></li>
 		        <li><%= link_to t(:my_documents), documents_path %></li>

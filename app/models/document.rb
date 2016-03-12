@@ -6,12 +6,13 @@ class Document < ActiveRecord::Base
 
 	mount_uploader :file, Uploader
 
-	def file_title
-		read_attribute(:file)
-	end
-
 	def file_size
-		file.size
+		s = file.size
+		if s < 512
+		  "#{s} #{Russian.p(s, 'байт', 'байта', 'байт')}"
+		else
+			"#{(s/1024.0).round(2)} Кб"
+		end
 	end
 
 	def file_url

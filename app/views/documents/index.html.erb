@@ -1,27 +1,9 @@
-<h1>Все документы</h1>
-
-<table class="table table-condensed table-bordered table-hover all_docs">
-  <thead>
-    <tr>
-      <th><%= Document.human_attribute_name(:file) %></th>
-      <th><%= Document.human_attribute_name(:user) %></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%#TODO сделать просмотр страницы для препода и пользователя%>
-    <% @documents.each do |document| %>
-      <tr>
-        <td><%= document.file_title %></td>
-        <td><%= document.user.login %></td>
-        <td><%= link_to t(:download), document.file_url, target: "_blank" %></td>
-        <td><%= link_to t(:destroy), document, method: :delete, data: { confirm: t(:confirm) } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% if @current_user.role == 2 %>
+  <%= render partial: 'admin_index_docs', locals: { documents: @documents } %>
+<% else %>
+  <div>
+    <%= render partial: 'table_docs', locals: { documents: @current_user.documents } %>
+  </div>
+<% end %><br>
 
 <%= link_to 'Загрузить новый документ', new_document_path %>

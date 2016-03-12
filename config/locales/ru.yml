@@ -26,7 +26,8 @@ ru:
   this_student_disciplines: Дисциплины студента
   all_users: Все пользователи
   my_group: Моя группа
-  my_documents: Загруженные файлы
+  my_documents: Мои файлы
+  all_docs: Все документы
   document_upload: Загрузка файлов
   choose_files: Выберите файлы
   start_upload: Начать загрузку
@@ -66,6 +67,7 @@ ru:
       document:
         title: Название
         file: Файл
+        file_size: Размер
         user: Кто загрузил
       rating:
         max_score: Максимальное значение

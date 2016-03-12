@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151122092440) do
 
   create_table "documents", id: false, force: :cascade do |t|
     t.string   "id",         null: false
+    t.string   "file_name"
     t.string   "file"
     t.string   "user_id"
     t.datetime "created_at", null: false

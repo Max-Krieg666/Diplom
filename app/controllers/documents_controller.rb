@@ -15,6 +15,7 @@ class DocumentsController < ApplicationController
 		count = files.size
 		for i in 0...count
 			@document = Document.new(file: files[i])
+			@document.file_name = Russian.translit(files[i].original_filename)
 			@document.user_id = @current_user.id
 			unless @document.save
 				flash[:error] = 'Ошибка при загрузке файла ' + files[i].original_filename

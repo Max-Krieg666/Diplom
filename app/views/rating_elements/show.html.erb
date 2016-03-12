@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <strong><%= RatingElement.human_attribute_name(:title) %>:</strong>
   <%= @rating_element.title %>
 </p>
-
 <p>
-  <strong>Score:</strong>
+  <strong><%= RatingElement.human_attribute_name(:score) %>:</strong>
   <%= @rating_element.score %>
 </p>
 
-<%= link_to t(:edit), edit_rating_element_path(@rating_element) %> |
-<%= link_to t(:back), rating_elements_path %>
+<%= link_to t(:edit), edit_rating_element_path(@rating_element), class: 'btn btn-info' %>
+<%= link_to 'Создать ещё 1', new_rating_element_path(rating_id: @rating.id), class: 'btn btn-primary' %>
+<%= link_to 'К дисциплине', @rating.discipline, class: 'btn btn-danger' %>

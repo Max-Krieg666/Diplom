@@ -4,28 +4,22 @@ class DisciplinesController < ApplicationController
   before_action :set_discipline, only: [:show, :edit, :update, :destroy]
 	before_action :set_teachers, only: [:show, :edit, :update, :new, :create]
 
-  # GET /disciplines
-  # GET /disciplines.json
   def index
     @disciplines = Discipline.all
   end
 
-  # GET /disciplines/1
-  # GET /disciplines/1.json
   def show
+		@rating = @discipline.rating
+		@rating_elements = @rating.rating_elements
   end
 
-  # GET /disciplines/new
   def new
     @discipline = Discipline.new
   end
 
-  # GET /disciplines/1/edit
   def edit
   end
 
-  # POST /disciplines
-  # POST /disciplines.json
   def create
     @discipline = Discipline.new(discipline_params)
 		@discipline.rating = Rating.create(max_score: 100)
@@ -44,8 +38,6 @@ class DisciplinesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /disciplines/1
-  # PATCH/PUT /disciplines/1.json
   def update
     respond_to do |format|
       if @discipline.update(discipline_params)
@@ -58,8 +50,6 @@ class DisciplinesController < ApplicationController
     end
   end
 
-  # DELETE /disciplines/1
-  # DELETE /disciplines/1.json
   def destroy
     @discipline.destroy
     respond_to do |format|

@@ -73,7 +73,7 @@ ru:
         max_score: Максимальное значение
         discipline: Дисциплина
       rating_element:
-        title: Название
+        title: Вид деятельности
         score: Значение
         rating: Рейтинг
       student_rating_element:

@@ -1,0 +1,19 @@
+<table class="table table-condensed table-bordered table-hover">
+  <thead>
+	  <tr>
+	    <th><%= Rating.human_attribute_name(:max_score) %></th>
+	    <% @rating_elements.each do |elems| %>
+	      <th><%= elems.title %></th>
+		  <% end %>
+	  </tr>
+  </thead>
+
+  <tbody>
+	  <tr>
+	    <td><%= @rating.max_score %></td>
+	    <% @rating_elements.each do |elems| %>
+	      <th><%= elems.score %></th>
+	    <% end %>
+	  </tr>
+  </tbody>
+</table>

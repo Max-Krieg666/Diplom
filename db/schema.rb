@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20151122092440) do
   end
 
   create_table "ratings", id: false, force: :cascade do |t|
-    t.string   "id",            null: false
-    t.integer  "max_score"
+    t.string   "id",                          null: false
+    t.integer  "max_score",     default: 100
     t.string   "discipline_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "sections", id: false, force: :cascade do |t|

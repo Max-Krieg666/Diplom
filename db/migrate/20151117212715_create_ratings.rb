@@ -2,7 +2,7 @@ class CreateRatings < ActiveRecord::Migration
   def change
     create_table :ratings, id: false do |t|
       t.string :id, primary: true, null: false
-      t.integer :max_score
+      t.integer :max_score, default: 100
 			t.string :discipline_id
 
       t.timestamps null: false

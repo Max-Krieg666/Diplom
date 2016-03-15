@@ -57,13 +57,14 @@ class RatingElementsController < ApplicationController
 	end
 
 	def rating_element_params
+    return [] unless params[:rating_element]
 		params.require(:rating_element).permit(:title, :score, :rating_id)
 	end
 
 	def set_rating
 		@rating = if params[:rating_id].present?
 		  Rating.find(params[:rating_id])
-		elsif rating_element_params[:rating_id].present?
+		elsif !rating_element_params.blank? && rating_element_params[:rating_id].present?
 			Rating.find(rating_element_params[:rating_id])
 		else
 			@rating_element.rating

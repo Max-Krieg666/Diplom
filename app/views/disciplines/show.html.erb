@@ -9,7 +9,7 @@
 		  <% @discipline.users.each do |teacher| %>
 			  <div class="teacher_link btn btn-primary">
 			    <%= link_to teacher.fio, teacher %>
-				  <% flag = true if teacher.id = @current_user.id%>
+				  <% flag = true if teacher.id = @current_user.id %>
 			    <br>
 			  </div>
 			<% end %>
@@ -21,9 +21,11 @@
 		  <%= "Необходимо еще распределить #{100 - @rating.score_now} #{Russian.p(100 - @rating.score_now, 'балл', 'балла', 'баллов')} для создания рейтинга!" %>
     </div>
 	  <%= link_to 'Создать элемент рейтинга', new_rating_element_path(rating_id: @rating.id), class: 'btn', style: 'color: black; background-color: yellow' %>
+		<br>
+		<br>
+	<% else %>
+	  <h3>Распределение баллов по дисциплине:</h3>
 	<% end %>
-  <br>
-  <br>
 
 	<div class="show_rating">
 		<%= render 'ratings/show_this_rating' %>

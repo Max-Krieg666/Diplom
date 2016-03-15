@@ -2,6 +2,7 @@ class RatingsController < ApplicationController
 	before_action :check_user
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
+  #TODO: реализовать форму начисления рейтинговых баллов студенту по опр.виду работы
   def index
     @ratings = Rating.all
   end

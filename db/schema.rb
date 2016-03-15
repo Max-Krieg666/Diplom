@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(version: 20151122092440) do
 
   create_table "disciplines", id: false, force: :cascade do |t|
-    t.string   "id",         null: false
+    t.string   "id",                        null: false
     t.string   "title"
     t.string   "rating_id"
     t.string   "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "status",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "disciplines_users", id: false, force: :cascade do |t|
@@ -56,13 +57,12 @@ ActiveRecord::Schema.define(version: 20151122092440) do
   end
 
   create_table "rating_elements", id: false, force: :cascade do |t|
-    t.string   "id",                        null: false
+    t.string   "id",         null: false
     t.string   "title"
     t.integer  "score"
     t.string   "rating_id"
-    t.string   "student_rating_element_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ratings", id: false, force: :cascade do |t|
@@ -82,11 +82,12 @@ ActiveRecord::Schema.define(version: 20151122092440) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "student_rating_elements", force: :cascade do |t|
-    t.integer  "value"
+  create_table "student_rating_elements", id: false, force: :cascade do |t|
+    t.integer  "value",             default: 0
     t.string   "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "rating_element_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", id: false, force: :cascade do |t|

@@ -5,6 +5,7 @@ class CreateDisciplines < ActiveRecord::Migration
       t.string :title
 			t.string :rating_id
 			t.string :group_id
+      t.boolean :status, default: true
 
       t.timestamps null: false
     end

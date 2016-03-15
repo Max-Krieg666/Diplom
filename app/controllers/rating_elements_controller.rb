@@ -3,6 +3,7 @@ class RatingElementsController < ApplicationController
   before_action :set_rating_element, only: [:show, :edit, :update, :destroy]
 	before_action :set_rating, only: [:show, :new, :create]
 
+  #TODO: сделать в контроллере автосоздание студент_элемент_рейтинг при создании эл_рейтинга
   def index
     @rating_elements = RatingElement.all
   end

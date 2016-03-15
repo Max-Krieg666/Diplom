@@ -3,6 +3,7 @@
 		<h1><%= @discipline.title %> <small><%= @discipline.group.numer %></small></h1>
 	</div>
 	<% flag = false %>
+	<% flag2 = true %>
 	<div class="discipline-teachers">
 		<%= label_tag Discipline.human_attribute_name(:teachers) %>:
 		<p>
@@ -15,6 +16,7 @@
 			<% end %>
 		</p>
 	</div>
+
 	<% if flag && @rating.score_now != 100 %>
 		<div class="alert alert-danger" style="width: 500px">
 		  <button class="close" data-dismiss="alert">×</button>
@@ -23,17 +25,18 @@
 	  <%= link_to 'Создать элемент рейтинга', new_rating_element_path(rating_id: @rating.id), class: 'btn', style: 'color: black; background-color: yellow' %>
 		<br>
 		<br>
-	<% else %>
-	  <h3>Распределение баллов по дисциплине:</h3>
+		<% flag2 = false%>
 	<% end %>
 
-	<div class="show_rating">
-		<%= render 'ratings/show_this_rating' %>
-		...Тут будет рейтинг по дисциплине
+	<div class="show_rating_elements">
+		<%= render 'ratings/show_rating_elements' %>
 	  <%# TODO сделать css для классов %>
-		<%# TODO привязать рейтинг %>
 	</div>
-	<br>
+
+	<% if flag2 %>
+		<%= render 'ratings/show_simple_rating' %>
+	<% end %>
+
 	<br>
 
   <div class="btn-group">

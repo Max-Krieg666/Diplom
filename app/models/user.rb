@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	belongs_to :group
 	has_and_belongs_to_many :disciplines
 	has_many :documents
-	has_one :student_rating_element
+	has_many :student_rating_elements
 
   before_validation :set_default_role
 
@@ -22,19 +22,19 @@ class User < ActiveRecord::Base
   validates :role, inclusion: { in: 0...ROLES.size }
 
   def student?
-    role==0
+    role == 0
   end
 
   def teacher?
-    role==1 || administrator?
+    role == 1 || administrator?
   end
 
   def administrator?
-    role==2
+    role == 2
   end
 
   def set_default_role
-    self.role||=0
+    self.role ||= 0
   end
 
   def role_name
@@ -47,6 +47,36 @@ class User < ActiveRecord::Base
 
   def short_fio
     "#{lastname} #{firstname.first}. #{patronymic.first}."
+  end
+
+  def average_rating
+    if student?
+      return 0.0 if student_rating_elements.blank?
+      sum = 0
+      student_rating_elements.all{ |r| sum += r.value }
+      (sum.to_f / group.disciplines.size).round(2)
+    end
+  end
+
+  def full_score_of(rating_id)
+    if student?
+      unless student_rating_elements.blank?
+        sum = 0
+        student_rating_elements.each{ |s| sum += s.vaalue if s.rating_element_id == rating_id }
+        sum
+      end
+    end
+  end
+
+  def show_mark_of(rating_id)
+    sc = full_score_of(rating_id)
+    if sc < 60
+      'Неудовлетворительно'
+    elsif sc > 84
+      'Отлично'
+    else # sc >= 60 && sc < 85
+      'Хорошо'
+    end
   end
 
   def self.generate_login(ln, fn, pt)

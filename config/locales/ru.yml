@@ -72,6 +72,12 @@ ru:
       rating:
         max_score: Максимальное значение
         discipline: Дисциплина
+        student: Студент
+        student_login: Логин
+        this_score: Баллы
+        this_mark: Оценка
+        simple_rating: Распределение баллов по дисциплине
+        detailed_rating: Подробный рейтинг по дисциплине
       rating_element:
         title: Вид деятельности
         score: Значение

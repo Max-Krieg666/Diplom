@@ -1,0 +1,22 @@
+<h3><%= Rating.human_attribute_name(:simple_rating) %>:</h3>
+<table class="table table-condensed table-bordered table-hover">
+  <thead>
+    <tr>
+      <th><%= Rating.human_attribute_name(:student_login) %></th>
+      <th><%= Rating.human_attribute_name(:student) %></th>
+      <th><%= Rating.human_attribute_name(:this_score) %></th>
+      <th><%= Rating.human_attribute_name(:this_mark) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @discipline.group.users.order(login: :asc).each do |student| %>
+      <tr>
+        <td><%= student.login %></td>
+        <td><%= student.fio %></td>
+        <td><%= student.full_score_of(@discipline.rating.id) %></td>
+        <td><%= student.show_mark_of(@discipline.rating.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

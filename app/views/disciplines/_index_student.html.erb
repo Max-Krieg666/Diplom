@@ -4,7 +4,8 @@
       <tr>
         <th><%= Discipline.human_attribute_name(:title) %></th>
         <th><%= Discipline.human_attribute_name(:teachers) %></th>
-        <th><%= Discipline.human_attribute_name(:rating) %></th>
+        <th><%= Rating.human_attribute_name(:this_score) %></th>
+        <th><%= Rating.human_attribute_name(:this_mark) %></th>
         <th></th>
       </tr>
     </thead>
@@ -21,7 +22,8 @@
               </div>
             <% end %>
           </td>
-          <td><%# TODO сделать отображение рейтинга для студента по дисциплине %></td>
+          <td><%= @user.full_score_of(discipline.rating.id) %></td>
+          <td><%= @user.show_mark_of(discipline.rating.id) %></td>
           <td><%= link_to t(:show), discipline %></td>
         </tr>
       <% end %>

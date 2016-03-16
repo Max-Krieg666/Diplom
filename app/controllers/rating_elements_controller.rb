@@ -3,7 +3,6 @@ class RatingElementsController < ApplicationController
   before_action :set_rating_element, only: [:show, :edit, :update, :destroy]
 	before_action :set_rating, only: [:show, :new, :create]
 
-  #TODO: сделать в контроллере автосоздание студент_элемент_рейтинг при создании эл_рейтинга
   def index
     @rating_elements = RatingElement.all
   end
@@ -23,6 +22,10 @@ class RatingElementsController < ApplicationController
 
     respond_to do |format|
       if @rating_element.save
+        usrs = @rating_element.rating.discipline.group.users.where(role: 0)
+        usrs.each do |us|
+          StudentRatingElement.create(user_id: us.id, rating_element_id: @rating_element.id)
+        end
         format.html { redirect_to @rating_element, notice: 'Создан элемент рейтинга.' }
         format.json { render :show, status: :created, location: @rating_element }
       else

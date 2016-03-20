@@ -4,8 +4,10 @@
       <tr>
         <th><%= Discipline.human_attribute_name(:title) %></th>
         <th><%= Discipline.human_attribute_name(:teachers) %></th>
-        <th><%= Rating.human_attribute_name(:this_score) %></th>
-        <th><%= Rating.human_attribute_name(:this_mark) %></th>
+	      <% if @user %>
+	        <th><%= Rating.human_attribute_name(:this_score) %></th>
+	        <th><%= Rating.human_attribute_name(:this_mark) %></th>
+	      <% end %>
         <th></th>
       </tr>
     </thead>
@@ -22,8 +24,10 @@
               </div>
             <% end %>
           </td>
-          <td><%= @user.full_score_of(discipline.rating.id) %></td>
-          <td><%= @user.show_mark_of(discipline.rating.id) %></td>
+          <% if @user %>
+	          <td><%= @user.full_score_of(discipline.rating.id) %></td>
+	          <td><%= @user.show_mark_of(discipline.rating.id) %></td>
+	        <% end %>
           <td><%= link_to t(:show), discipline %></td>
         </tr>
       <% end %>

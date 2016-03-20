@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(version: 20151122092440) do
   end
 
   create_table "student_rating_elements", id: false, force: :cascade do |t|
+    t.string   "id",                            null: false
     t.integer  "value",             default: 0
+    t.string   "comment"
     t.string   "user_id"
     t.string   "rating_element_id"
     t.datetime "created_at",                    null: false

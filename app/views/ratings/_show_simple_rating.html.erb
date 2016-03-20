@@ -6,16 +6,20 @@
       <th><%= Rating.human_attribute_name(:student) %></th>
       <th><%= Rating.human_attribute_name(:this_score) %></th>
       <th><%= Rating.human_attribute_name(:this_mark) %></th>
+	    <th></th>
     </tr>
   </thead>
 
   <tbody>
+    <%# TODO продумать, как колонку full_score фильтровать по desc %>
+    <%# возможно, применить гем с фильтрацией таблиц %>
     <% @discipline.group.users.order(login: :asc).each do |student| %>
       <tr>
         <td><%= student.login %></td>
-        <td><%= student.fio %></td>
+        <td><%= link_to student.fio, student %></td>
         <td><%= student.full_score_of(@discipline.rating.id) %></td>
         <td><%= student.show_mark_of(@discipline.rating.id) %></td>
+	      <td><%= link_to t(:score_plus), new_student_rating_element_path(user_id: student.id, discipline_id: @discipline.id) %></td>
       </tr>
     <% end %>
   </tbody>

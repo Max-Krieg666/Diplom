@@ -24,5 +24,12 @@
   </tbody>
 </table>
 
-<%= link_to t(:edit), edit_group_path(@group) %> |
-<%= link_to t(:back), groups_path %>
+<% if @group.disciplines %>
+	<h3><%= t(:studying_disciplines) %>:</h3>
+  <%= render partial: 'disciplines/index_student', locals: { disciplines: @group.disciplines } %>
+<% end %>
+
+<% if @current_user.administrator? %>
+	<%= link_to t(:edit), edit_group_path(@group) %> |
+	<%= link_to t(:back), groups_path %>
+<% end %>

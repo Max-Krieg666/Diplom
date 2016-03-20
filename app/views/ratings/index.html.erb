@@ -1,9 +1,9 @@
 <h1>Все рейтинги</h1>
 
-<table class="table table-condensed table-bordered table-hover all_users">
+<table class="table table-condensed table-bordered table-hover all_ratings">
   <thead>
     <tr>
-      <th><%= Rating.human_attribute_name(:discipline_id) %></th>
+      <th><%= Rating.human_attribute_name(:discipline) %></th>
       <th><%= Rating.human_attribute_name(:max_score) %></th>
       <th colspan="3"></th>
     </tr>
@@ -14,7 +14,7 @@
       <tr>
         <td><%= rating.discipline.title %></td>
         <td><%= rating.max_score %></td>
-        <td><%= link_to t(:show), rating %></td>
+        <td><%= link_to t(:show), rating.discipline %></td>
         <td><%= link_to t(:edit), edit_rating_path(rating) %></td>
         <td><%= link_to t(:destroy), rating, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>

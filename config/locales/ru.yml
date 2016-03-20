@@ -24,6 +24,8 @@ ru:
   all_disciplines: Все дисциплины
   this_teacher_disciplines: Дисциплины, которые ведёт преподаватель
   this_student_disciplines: Дисциплины студента
+  studying_disciplines: Изучаемые дисциплины
+  score_plus: Начислить баллы
   all_users: Все пользователи
   my_group: Моя группа
   my_documents: Мои файлы
@@ -84,6 +86,8 @@ ru:
         rating: Рейтинг
       student_rating_element:
         value: Значение
+        comment: Комментарий
+        rating_element: Вид деятельности
         user: Студент
     models:
       user: Пользователь

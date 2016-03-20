@@ -12,8 +12,8 @@ end
 YAML.load_file(Rails.root.join('db', 'seeds', 'disciplines.yml')).each do |d|
 	tmp = Discipline.create(d)
   r = Rating.create(discipline_id: tmp.id)
-  # tmp.rating_id = r.id
-  # tmp.save!
+	tmp.rating_id = r.id
+	tmp.save!
   usrs = User.where(role: 1).to_a
   count = usrs.size
   r1 = rand(count)
@@ -36,10 +36,10 @@ Rating.all.each do |r|
   RatingElement.create(title: 'Экзаменационная работа', score: 20, rating_id: r.id)
 end
 
-# создание элементов рейтинга для каждого студента
-RatingElement.all.each do |re|
-  usrs = re.rating.discipline.group.users.where(role: 0)
-  usrs.each do |us|
-  	StudentRatingElement.create(user_id: us.id, rating_element_id: re.id)
-  end
-end
+# # создание элементов рейтинга для каждого студента
+# RatingElement.all.each do |re|
+#   usrs = re.rating.discipline.group.users.where(role: 0)
+#   usrs.each do |us|
+#   	StudentRatingElement.create(user_id: us.id, rating_element_id: re.id)
+#   end
+# end

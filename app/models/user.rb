@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :login, :email, :password, :role, :lastname, :firstname
 
-  validates :login, length: { minimum: 3 ,maximum: 24 },
+  validates :login, length: { minimum: 3, maximum: 24 },
             uniqueness: true
   validates :password, length: { minimum: 6 }, if: "password.present?"
   validates :email, uniqueness: { case_sensitive: false },
@@ -60,16 +60,15 @@ class User < ActiveRecord::Base
 
   def full_score_of(rating_id)
     if student?
-      unless student_rating_elements.blank?
-        sum = 0
-        student_rating_elements.each{ |s| sum += s.vaalue if s.rating_element_id == rating_id }
-        sum
-      end
+			rt_elems = Rating.find(rating_id).rating_elements.collect{ |r| r.id }
+			sum = 0
+			student_rating_elements.each{ |s| sum += s.value if rt_elems.include?(s.rating_element_id) }
+			sum
     end
   end
 
   def show_mark_of(rating_id)
-    sc = full_score_of(rating_id)
+		sc = full_score_of(rating_id)
     if sc < 60
       'Неудовлетворительно'
     elsif sc > 84

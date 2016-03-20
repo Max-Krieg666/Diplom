@@ -8,11 +8,8 @@
 		<%= label_tag Discipline.human_attribute_name(:teachers) %>:
 		<p>
 		  <% @discipline.users.each do |teacher| %>
-			  <div class="teacher_link btn btn-primary">
-			    <%= link_to teacher.fio, teacher %>
-				  <% flag = true if teacher.id = @current_user.id %>
-			    <br>
-			  </div>
+		    <%= link_to teacher.fio, teacher, class: 'teacher_link btn btn-primary' %>
+	      <% flag = true if teacher.id = @current_user.id %>
 			<% end %>
 		</p>
 	</div>
@@ -25,12 +22,11 @@
 	  <%= link_to 'Создать элемент рейтинга', new_rating_element_path(rating_id: @rating.id), class: 'btn', style: 'color: black; background-color: yellow' %>
 		<br>
 		<br>
-		<% flag2 = false%>
+		<% flag2 = false %>
 	<% end %>
 
 	<div class="show_rating_elements">
 		<%= render 'ratings/show_rating_elements' %>
-	  <%# TODO сделать css для классов %>
 	</div>
 
 	<% if flag2 %>
@@ -39,8 +35,10 @@
 
 	<br>
 
-  <div class="btn-group">
-		<%= link_to t(:edit), edit_discipline_path(@discipline), class: 'btn btn-default' %>
-		<%= link_to t(:back), disciplines_path, class: 'btn btn-default' %>
-  </div>
+	<% if @current_user.administrator? %>
+	  <div class="btn-group">
+			<%= link_to t(:edit), edit_discipline_path(@discipline), class: 'btn btn-default' %>
+			<%= link_to t(:back), disciplines_path, class: 'btn btn-default' %>
+	  </div>
+  <% end %>
 </div>

@@ -6,12 +6,12 @@
 		<%= hidden_field_tag 'rating_element[rating_id]', params[:rating_element][:rating_id] %>
   <% end %>
   <div class="form-group">
-    <%= f.label RatingElement.human_attribute_name(:title) %><br>
+    <%= f.label :title %><br>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label RatingElement.human_attribute_name(:score) %><br>
+    <%= f.label :score %><br>
     <%= f.number_field :score, min: 1, max: 100 - @rating.score_now, class: 'form-control' %>
   </div>
 

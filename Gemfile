@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # design
 gem 'bootstrap-sass'
+gem 'bootstrap-multiselect_rails'
 
 # internationalize
 gem 'rails-i18n'

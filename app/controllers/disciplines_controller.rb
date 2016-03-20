@@ -22,11 +22,16 @@ class DisciplinesController < ApplicationController
 
   def create
     @discipline = Discipline.new(discipline_params)
-		@discipline.rating = Rating.create(max_score: 100)
+		rate = Rating.create(max_score: 100)
+		@discipline.rating_id = rate.id
 		respond_to do |format|
-      if params[:user_ids].presence && @discipline.save
-				params[:user_ids].each do |u|
-					@discipline.users << User.find(u)
+      if @discipline.save
+				rate.discipline_id = @discipline.id
+				rate.save!
+				if params['user_ids'].presence
+					params['user_ids'].each do |u|
+						@discipline.users << User.find(u)
+					end
 				end
         format.html { redirect_to @discipline, notice: 'Дисциплина успешно создана.' }
         format.json { render :show, status: :created, location: @discipline }

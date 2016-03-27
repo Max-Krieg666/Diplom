@@ -36,6 +36,7 @@ ru:
   cancel_upload: Отменить загрузку
   all_groups: Все группы
   all_documents: Все файлы
+  your_points: Ваши баллы
   activerecord:
     attributes:
       user:

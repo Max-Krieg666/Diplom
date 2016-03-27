@@ -1,9 +1,86 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-multiselect';
 
 .alert-notice {
   @extend .alert-success;
 }
+
 .field_with_errors {
   @extend .has-error;
+}
+
+.main-navbar-mami {
+  background-color: #039;
+}
+
+.first-footer {
+  padding-top: 10px;
+}
+
+.navbar-mami-brand-text {
+  max-width: 600px;
+  margin: 5px auto;
+}
+
+.navbar-logo {
+  max-height: 40px;
+  overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
+  &:hover {
+    background-color: #039;
+  }
+}
+
+.header-text_first {
+  color: rgb(0,102,204);
+  font-size: 15pt;
+}
+
+.link-nav {
+  color: #fff !important;
+  &:hover {
+    color: #bbb !important;
+    background-color: #039 !important;
+  }
+  &:focus {
+    background-color: #039 !important;
+  }
+}
+
+.navbar-right {
+  margin-top: 15px !important;
+  &:hover {
+    color: #039 !important;
+  }
+}
+
+div.dropdown.open {
+  background-color: #039 !important;
+}
+
+a.dropdown-toggle {
+  color: #fff !important;
+  text-decoration: none;
+  &:hover {
+    background-color: #039 !important;
+  }
+  &:focus {
+    background-color: #039 !important;
+  }
+}
+
+.dropd_menu_right_nav {
+  color: #fff !important;
+  background-color: #039 !important;
+}
+
+.header-text_second {
+  color: rgb(0,102,204);
+  font-size: 15pt;
+}
+
+.header-text_third {
+  color: rgb(153,153,153);
 }

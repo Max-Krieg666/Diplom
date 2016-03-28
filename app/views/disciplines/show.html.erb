@@ -19,7 +19,7 @@
 		  <button class="close" data-dismiss="alert">×</button>
 		  <%= "Необходимо еще распределить #{100 - @rating.score_now} #{Russian.p(100 - @rating.score_now, 'балл', 'балла', 'баллов')} для создания рейтинга!" %>
     </div>
-	  <%= link_to 'Создать элемент рейтинга', new_rating_element_path(rating_id: @rating.id), class: 'btn', style: 'color: black; background-color: yellow' %>
+	  <%= link_to 'Создать элемент рейтинга', new_rating_element_path(rating_id: @rating.id), class: 'btn', style: 'color: black; background-color: yellow', class: 'edu_portal_link' %>
 		<br>
 		<br>
 		<% flag2 = false %>

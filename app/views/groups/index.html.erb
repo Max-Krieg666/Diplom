@@ -12,9 +12,9 @@
     <% @groups.each do |group| %>
       <tr>
         <td><%= group.numer %></td>
-        <td><%= link_to t(:show), group %></td>
-        <td><%= link_to t(:edit), edit_group_path(group) %></td>
-        <td><%= link_to t(:destroy), group, method: :delete, data: { confirm: t(:confirm) } %></td>
+        <td><%= link_to t(:show), group, class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:edit), edit_group_path(group), class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:destroy), group, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'Создание группы', new_group_path %>
+<%= link_to 'Создание группы', new_group_path, class: 'edu_portal_link' %>

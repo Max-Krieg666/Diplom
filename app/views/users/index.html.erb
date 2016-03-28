@@ -21,9 +21,9 @@
 	        <td><%= user.login %></td>
 	        <td><%= user.email %></td>
 	        <td><%= user.role_name %></td>
-	        <td><%= link_to t(:show), user %></td>
-	        <td><%= link_to t(:edit), edit_user_path(user) %></td>
-	        <td><%= link_to t(:destroy), user, method: :delete, data: { confirm: t(:confirm) } %></td>
+	        <td><%= link_to t(:show), user, class: 'edu_portal_link' %></td>
+	        <td><%= link_to t(:edit), edit_user_path(user), class: 'edu_portal_link' %></td>
+	        <td><%= link_to t(:destroy), user, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
 	      </tr>
 	    <% end %>
 	  </tbody>
@@ -31,5 +31,5 @@
 
 	<br>
 
-	<%= link_to 'Новый пользователь', new_user_path %>
+	<%= link_to 'Новый пользователь', new_user_path, class: 'edu_portal_link' %>
 </div>

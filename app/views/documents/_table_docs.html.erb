@@ -14,8 +14,8 @@
 	    <tr>
 	      <td><%= document.file_name %></td>
 	      <td><%= document.file_size %></td>
-	      <td><%= link_to t(:download), document.file_url, target: "_blank" %></td>
-	      <td><%= link_to t(:destroy), document, method: :delete, data: { confirm: t(:confirm) } %></td>
+	      <td><%= link_to t(:download), document.file_url, target: "_blank", class: 'edu_portal_link' %></td>
+	      <td><%= link_to t(:destroy), document, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
 	    </tr>
 	  <% end %>
   </tbody>

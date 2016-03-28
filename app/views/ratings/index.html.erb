@@ -14,14 +14,10 @@
       <tr>
         <td><%= rating.discipline.title %></td>
         <td><%= rating.max_score %></td>
-        <td><%= link_to t(:show), rating.discipline %></td>
-        <td><%= link_to t(:edit), edit_rating_path(rating) %></td>
-        <td><%= link_to t(:destroy), rating, method: :delete, data: { confirm: t(:confirm) } %></td>
+        <td><%= link_to t(:show), rating.discipline, class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:edit), edit_rating_path(rating), class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:destroy), rating, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Создание нового рейтинга', new_rating_path %>

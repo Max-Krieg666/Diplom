@@ -13,7 +13,7 @@
       <%= f.label :rating_element %><br>
       <%= select_rating_element('student_rating_element[rating_element_id]', params[:discipline_id], @student_rating_element.rating_element_id)%>
     </div>
-    <div class="form-group col-md-1">
+    <div class="form-group col-md-2">
 	    <%= f.label :value %><br>
 	    <%= f.number_field :value, class: 'form-control', min: -20, max: 20 %>
     </div>

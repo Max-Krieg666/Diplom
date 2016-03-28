@@ -19,7 +19,7 @@
           <td>
             <% discipline.users.each do |teacher| %>
               <div class="teacher_link">
-                <%= link_to teacher.fio, teacher %>
+                <%= link_to teacher.fio, teacher, class: 'edu_portal_link' %>
                 <br>
               </div>
             <% end %>
@@ -28,7 +28,7 @@
 	          <td><%= @user.full_score_of(discipline.rating.id) %></td>
 	          <td><%= @user.show_mark_of(discipline.rating.id) %></td>
 	        <% end %>
-          <td><%= link_to t(:show), discipline %></td>
+          <td><%= link_to t(:show), discipline, class: 'edu_portal_link' %></td>
         </tr>
       <% end %>
     </tbody>

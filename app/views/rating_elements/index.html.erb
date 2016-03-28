@@ -14,9 +14,9 @@
       <tr>
         <td><%= rating_element.title %></td>
         <td><%= rating_element.score %></td>
-        <td><%= link_to t(:show), rating_element %></td>
-        <td><%= link_to t(:edit), edit_rating_element_path(rating_element) %></td>
-        <td><%= link_to t(:destroy), rating_element, method: :delete, data: { confirm: t(:confirm) } %></td>
+        <td><%= link_to t(:show), rating_element, class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:edit), edit_rating_element_path(rating_element), class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:destroy), rating_element, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'Создание элемента рейтинга', new_rating_element_path %>
+<%= link_to 'Создание элемента рейтинга', new_rating_element_path, class: 'edu_portal_link' %>

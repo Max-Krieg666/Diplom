@@ -15,7 +15,7 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= i %></td>
-        <td><%= link_to student.fio, student %></td>
+        <td><%= link_to student.fio, student, class: 'edu_portal_link' %></td>
         <td><%= student.login %></td>
         <td><%= student.average_rating %></td>
       </tr>
@@ -30,6 +30,6 @@
 <% end %>
 
 <% if @current_user.administrator? %>
-	<%= link_to t(:edit), edit_group_path(@group) %> |
-	<%= link_to t(:back), groups_path %>
+	<%= link_to t(:edit), edit_group_path(@group), class: 'edu_portal_link' %> |
+	<%= link_to t(:back), groups_path, class: 'edu_portal_link' %>
 <% end %>

@@ -14,9 +14,9 @@
     <% @student_rating_elements.each do |student_rating_element| %>
       <tr>
         <td><%= student_rating_element.value %></td>
-        <td><%= link_to t(:show), student_rating_element %></td>
-        <td><%= link_to t(:edit), edit_student_rating_element_path(student_rating_element) %></td>
-        <td><%= link_to t(:destroy), student_rating_element, method: :delete, data: { confirm: t(:confirm) } %></td>
+        <td><%= link_to t(:show), student_rating_element, class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:edit), edit_student_rating_element_path(student_rating_element), class: 'edu_portal_link' %></td>
+        <td><%= link_to t(:destroy), student_rating_element, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'Создание Student rating element', new_student_rating_element_path %>
+<%= link_to 'Создание Student rating element', new_student_rating_element_path, class: 'edu_portal_link' %>

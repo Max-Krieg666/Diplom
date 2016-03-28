@@ -2,7 +2,7 @@
   <% @group = @user.group %>
   <p>
     <strong><%= User.human_attribute_name(:group) %>:</strong>
-    <%= link_to @group.numer, @group %>
+    <%= link_to @group.numer, @group, class: 'edu_portal_link' %>
   </p>
 
   <br>

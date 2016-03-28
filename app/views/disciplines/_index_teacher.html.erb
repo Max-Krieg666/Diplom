@@ -13,16 +13,16 @@
       <% disciplines.each do |discipline| %>
         <tr>
           <td><%= discipline.title %></td>
-          <td><%= link_to discipline.group.numer, discipline.group %></td>
+          <td><%= link_to discipline.group.numer, discipline.group, class: 'edu_portal_link' %></td>
           <td>
             <% discipline.users.each do |teacher| %>
               <div class="teacher_link">
-                <%= link_to teacher.fio, teacher %>
+                <%= link_to teacher.fio, teacher, class: 'edu_portal_link' %>
                 <br>
               </div>
             <% end %>
           </td>
-          <td><%= link_to t(:show), discipline %></td>
+          <td><%= link_to t(:show), discipline, class: 'edu_portal_link' %></td>
         </tr>
       <% end %>
     </tbody>

@@ -24,9 +24,9 @@
               </div>
             <% end %>
           </td>
-          <td><%= link_to t(:show), discipline %></td>
-          <td><%= link_to t(:edit), edit_discipline_path(discipline) %></td>
-          <td><%= link_to t(:destroy), discipline, method: :delete, data: { confirm: t(:confirm) } %></td>
+          <td><%= link_to t(:show), discipline, class: 'edu_portal_link' %></td>
+          <td><%= link_to t(:edit), edit_discipline_path(discipline), class: 'edu_portal_link' %></td>
+          <td><%= link_to t(:destroy), discipline, method: :delete, data: { confirm: t(:confirm) }, class: 'edu_portal_link' %></td>
         </tr>
       <% end %>
     </tbody>
@@ -34,5 +34,5 @@
 
   <br>
 
-  <%= link_to t(:create), new_discipline_path %>
+  <%= link_to t(:create), new_discipline_path, class: 'edu_portal_link' %>
 </div>

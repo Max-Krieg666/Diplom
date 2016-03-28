@@ -2,6 +2,17 @@
 @import "bootstrap";
 @import 'bootstrap-multiselect';
 
+a.edu_portal_link {
+  &:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+  &:visited {
+    color: #000;
+  }
+}
+
 .alert-notice {
   @extend .alert-success;
 }
@@ -36,6 +47,15 @@
 .header-text_first {
   color: rgb(0,102,204);
   font-size: 15pt;
+}
+
+.header-text_second {
+  color: rgb(0,102,204);
+  font-size: 15pt;
+}
+
+.header-text_third {
+  color: rgb(153,153,153);
 }
 
 .link-nav {
@@ -74,13 +94,4 @@ a.dropdown-toggle {
 .dropd_menu_right_nav {
   color: #fff !important;
   background-color: #039 !important;
-}
-
-.header-text_second {
-  color: rgb(0,102,204);
-  font-size: 15pt;
-}
-
-.header-text_third {
-  color: rgb(153,153,153);
 }

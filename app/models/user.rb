@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
     if student?
       return 0.0 if student_rating_elements.blank?
       sum = 0
-      student_rating_elements.all{ |r| sum += r.value }
+      student_rating_elements.map{ |r| sum += r.value }
       (sum.to_f / group.disciplines.size).round(2)
     end
   end

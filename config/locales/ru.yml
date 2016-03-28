@@ -83,7 +83,7 @@ ru:
         detailed_rating: Подробный рейтинг по дисциплине
       rating_element:
         title: Вид деятельности
-        score: Значение
+        score: Баллы
         rating: Рейтинг
       student_rating_element:
         value: Значение

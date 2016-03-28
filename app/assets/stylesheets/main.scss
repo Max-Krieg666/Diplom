@@ -5,11 +5,11 @@
 a.edu_portal_link {
   &:hover {
     color: #000;
-    background-color: #fff;
+    background-color: inherit;
   }
 
   &:visited {
-    color: #000;
+    color: #337ab7;
   }
 }
 
@@ -55,6 +55,7 @@ a.edu_portal_link {
 }
 
 .header-text_third {
+  padding-left: 11%;
   color: rgb(153,153,153);
 }
 

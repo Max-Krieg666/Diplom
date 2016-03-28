@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   resources :student_rating_elements
   resources :rating_elements
-  resources :ratings
   resources :documents
   resources :sections
   resources :pages

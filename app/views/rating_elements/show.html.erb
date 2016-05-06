@@ -7,6 +7,6 @@
   <%= @rating_element.score %>
 </p>
 
-<%= link_to t(:edit), edit_rating_element_path(@rating_element), class: 'btn btn-info' %>
-<%= link_to 'Создать ещё 1', new_rating_element_path(rating_id: @rating.id), class: 'btn btn-primary' %>
-<%= link_to 'К дисциплине', @rating.discipline, class: 'btn btn-danger' %>
+<%= link_to t(:edit), edit_rating_element_path(@rating_element), class: 'btn btn-primary' %>
+<%= link_to 'Создать ещё 1', new_rating_element_path(rating_id: @rating.id), class: 'btn btn-info' %>
+<%= link_to 'К дисциплине', @rating.discipline, class: 'btn btn-default edu_portal_link' %>

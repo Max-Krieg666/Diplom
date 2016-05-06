@@ -1,13 +1,6 @@
 class StudentRatingElementsController < ApplicationController
 	before_action :check_user
-  before_action :set_student_rating_element, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @student_rating_elements = StudentRatingElement.all
-  end
-
-  def show
-  end
+  before_action :set_student_rating_element, only: [:edit, :update, :destroy]
 
   def new
     @student_rating_element = StudentRatingElement.new

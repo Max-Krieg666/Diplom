@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :student_rating_elements
-  resources :rating_elements
+  resources :student_rating_elements, except: [:index, :show]
+  resources :rating_elements, except: [:index]
   resources :documents
   resources :sections
   resources :pages

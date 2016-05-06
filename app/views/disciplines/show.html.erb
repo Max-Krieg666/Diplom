@@ -1,4 +1,6 @@
-<div class="discipline-show">
+<%= render 'left_navbar' %>
+
+<div class="discipline-other-block">
   <div class="discipline-title">
 		<h1><%= @discipline.title %> <small><%= @discipline.group.numer %></small></h1>
 	</div>
@@ -29,7 +31,8 @@
 		<%= render 'ratings/show_rating_elements' %>
 	</div>
 
-	<% if flag2 %>
+
+  <% if flag2 %>
 		<%= render 'ratings/show_simple_rating' %>
 	<% end %>
 
@@ -37,8 +40,8 @@
 
 	<% if @current_user.administrator? %>
 	  <div class="btn-group">
-			<%= link_to t(:edit), edit_discipline_path(@discipline), class: 'btn btn-default' %>
-			<%= link_to t(:back), disciplines_path, class: 'btn btn-default' %>
+			<%= link_to t(:edit), edit_discipline_path(@discipline), class: 'btn btn-primary' %>
+			<%= link_to t(:back), disciplines_path, class: 'btn btn-default edu_portal_link' %>
 	  </div>
   <% end %>
 </div>

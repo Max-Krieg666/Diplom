@@ -21,6 +21,7 @@ ru:
   prompt_select: Выберите
   some_errors: При сохранении произошли ошибки!
   my_disciplines: Мои дисциплины
+  to_disciplines: К дисциплинам
   all_disciplines: Все дисциплины
   this_teacher_disciplines: Дисциплины, которые ведёт преподаватель
   this_student_disciplines: Дисциплины студента

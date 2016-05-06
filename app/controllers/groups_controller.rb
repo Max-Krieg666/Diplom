@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @students = User.where(group_id: @group.id).order('lastname, firstname, patronymic, login')
+		@students = @group.users.order('lastname, firstname, patronymic, login')
   end
 
   # GET /groups/new

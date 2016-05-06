@@ -1,6 +1,11 @@
-<h1>Редактирование дисциплины</h1>
+<%= render 'left_navbar' %>
 
-<%= render 'form' %>
+<div class="discipline-other-block">
+	<h1>Редактирование дисциплины</h1>
 
-<%= link_to t(:show), @discipline, class: 'edu_portal_link' %> |
-<%= link_to t(:back), disciplines_path, class: 'edu_portal_link' %>
+	<%= render 'form' %>
+
+	<br>
+	<%= link_to t(:to_disciplines), disciplines_path, class: 'btn btn-primary' %>
+  <%= link_to t(:show), @discipline, class: 'btn btn-default edu_portal_link' %>
+</div>

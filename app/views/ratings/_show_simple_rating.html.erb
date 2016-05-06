@@ -1,5 +1,5 @@
 <h3><%= Rating.human_attribute_name(:simple_rating) %>:</h3>
-<table class="table table-condensed table-bordered table-hover">
+<table class="table table-condensed table-bordered table-hover" data-sortlist="[[2,1],[1,0],[0,0]]">
   <thead>
     <tr>
       <th><%= Rating.human_attribute_name(:student_login) %></th>
@@ -11,8 +11,6 @@
   </thead>
 
   <tbody>
-    <%# TODO продумать, как колонку full_score фильтровать по desc %>
-    <%# возможно, применить гем с фильтрацией таблиц %>
     <% @discipline.group.users.order(login: :asc).each do |student| %>
       <tr>
         <td><%= student.login %></td>

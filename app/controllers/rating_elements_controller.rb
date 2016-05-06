@@ -3,10 +3,6 @@ class RatingElementsController < ApplicationController
   before_action :set_rating_element, only: [:show, :edit, :update, :destroy]
 	before_action :set_rating, only: [:show, :new, :create]
 
-  def index
-    @rating_elements = RatingElement.all
-  end
-
   def show
   end
 

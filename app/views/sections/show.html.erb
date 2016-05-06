@@ -8,5 +8,6 @@
   <%= @section.content %>
 </p>
 
-<%= link_to t(:edit), edit_section_path(@section) %> |
-<%= link_to t(:back), sections_path %>
+<br>
+<%= link_to t(:edit), edit_section_path(@section), class: 'btn btn-primary' %>
+<%= link_to t(:back), sections_path, class: 'btn btn-default edu_portal_link' %>

@@ -4,6 +4,8 @@ class StudentRatingElementsController < ApplicationController
 
   def new
     @student_rating_element = StudentRatingElement.new
+    @student = User.find(params[:user_id])
+    @discipline = Discipline.find(params[:discipline_id])
   end
 
   def edit

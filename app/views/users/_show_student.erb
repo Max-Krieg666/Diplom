@@ -12,6 +12,6 @@
   <% else %>
     <h4><%= t(:this_student_disciplines) %>:</h4>
   <% end %>
-
-  <%= render partial: 'disciplines/index_student', locals: { disciplines: @group.disciplines } %>
+  <% @disciplines = @group.disciplines %>
+  <%= render 'disciplines/index_student' %>
 </div>

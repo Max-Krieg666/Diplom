@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-      <% disciplines.each do |discipline| %>
+      <% @disciplines.each do |discipline| %>
         <tr>
           <td><%= discipline.title %></td>
           <td><%= link_to discipline.group.numer, discipline.group %></td>

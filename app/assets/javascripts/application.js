@@ -23,3 +23,7 @@ function right_numers(){
         }
     }
 }
+
+$(document).ready(function(){
+    $('#choose-rating-element').multiselect();
+});

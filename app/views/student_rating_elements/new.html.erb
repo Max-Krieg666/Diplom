@@ -1,6 +1,13 @@
-<h1>Начисление баллов</h1>
+<%= render 'left_navbar' %>
 
-<%= render 'form' %>
+<div class="discipline-other-block">
+  <h1>Начисление баллов</h1>
 
-<br>
-<%= link_to 'Вернуться к дисциплине', discipline_path(params[:discipline_id]), class: 'btn btn-default edu_portal_link' %>
+  <h3>Студент: <%= @student.fio %> (гр. <%= @student.group.numer %>)</h3>
+  <br>
+
+  <%= render 'form' %>
+
+  <br>
+  <%= link_to 'Вернуться к дисциплине', discipline_path(params[:discipline_id]), class: 'btn btn-default edu_portal_link' %>
+</div>

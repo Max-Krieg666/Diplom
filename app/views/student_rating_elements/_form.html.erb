@@ -1,9 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#choose-rating-element').multiselect();
-	});
-</script>
-
 <%= form_for(@student_rating_element) do |f| %>
   <%= error_messages_for(@student_rating_element) %>
 	<%= hidden_field_tag 'student_rating_element[user_id]', params[:user_id] %>

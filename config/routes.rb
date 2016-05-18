@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :documents
   resources :sections
   resources :pages
-  resources :disciplines
+  resources :disciplines do
+    member do
+      get 'detailed_rating'
+    end
+  end
   resources :groups
   resources :users
 

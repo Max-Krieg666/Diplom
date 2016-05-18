@@ -1,7 +1,7 @@
 class DisciplinesController < ApplicationController
 	before_action :check_user
 	before_action :admin_permission, only: [:new, :create, :destroy]
-  before_action :set_discipline, only: [:show, :edit, :update, :destroy]
+  before_action :set_discipline, only: [:show, :edit, :update, :destroy, :detailed_rating]
 	before_action :set_teachers, only: [:show, :edit, :update, :new, :create]
 
   def index
@@ -61,6 +61,12 @@ class DisciplinesController < ApplicationController
       format.html { redirect_to disciplines_url, notice: 'Дисциплина успешно удалена.' }
       format.json { head :no_content }
     end
+  end
+
+  def detailed_rating
+    @rating = @discipline.rating
+    @rating_elements = @rating.rating_elements
+    @group = @discipline.group
   end
 
   private

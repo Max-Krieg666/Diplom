@@ -15,10 +15,10 @@
   <%= @user.role_name %>
 </p>
 
-<% if @user.group_id && @user.role == 0 %>
+<br>
+<% if @user.group_id && @user.student? %>
   <%= render 'show_student' %>
 <% elsif @user.role == 1 %>
-  <br>
   <%= render 'show_teacher' %>
 <% end %>
 

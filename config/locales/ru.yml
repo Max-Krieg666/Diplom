@@ -22,6 +22,7 @@ ru:
   some_errors: При сохранении произошли ошибки!
   my_disciplines: Мои дисциплины
   to_disciplines: К дисциплинам
+  to_discipline: К дисциплине
   all_disciplines: Все дисциплины
   this_teacher_disciplines: Дисциплины, которые ведёт преподаватель
   this_student_disciplines: Дисциплины студента

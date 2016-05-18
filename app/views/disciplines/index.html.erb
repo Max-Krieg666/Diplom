@@ -1,15 +1,15 @@
 <% if @current_user.administrator? %>
-  <%= render partial: 'index_admin', locals: { disciplines: @disciplines } %>
+  <%= render 'index_admin' %>
 <% elsif @current_user.teacher? %>
   <div>
     <h1><%= t(:my_disciplines) %></h1>
-    <%= render partial: 'index_teacher', locals: { disciplines: @current_user.disciplines } %>
+    <%= render 'index_teacher' %>
   </div>
 <% else %>
   <div>
     <h1><%= t(:my_disciplines) %></h1>
-    <%= render partial: 'index_student', locals: { disciplines: @current_user.group.disciplines } %>
+    <%= render 'index_student' %>
   </div>
 <% end %>
 <% # TODO подумать о добавлении типа рейтинга или дисциплины - зачет/экз%>
-<% # TODO страницы по дисциплинам +++ MARKDOWN %>
+<% # страницы по дисциплинам +++ MARKDOWN %>

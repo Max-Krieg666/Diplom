@@ -1,0 +1,36 @@
+<%= render 'left_navbar' %>
+
+<div class="discipline-other-block">
+  <h3><%= Rating.human_attribute_name(:detailed_rating) %></h3>
+  <h4>"<%= @discipline.title %>":</h4>
+  <table id="group_rating" class="table table-condensed table-bordered table-hover" data-sortlist="[[3,1],[2,0]]">
+    <thead>
+      <tr>
+        <th>№</th>
+        <th><%= Rating.human_attribute_name(:student) %></th>
+        <th><%= User.human_attribute_name(:login) %></th>
+        <th><%= 'Всего баллов (100)' %></th>
+        <% @rating.rating_elements.each do |el| %>
+          <th><%= el.title + " (#{el.score})" %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% i = 1 %>
+      <% @group.users.order('lastname, firstname, patronymic').each do |student| %>
+        <tr>
+          <td><%= i %></td>
+          <td><%= link_to student.fio, student, class: 'edu_portal_link' %></td>
+          <td><%= student.login %></td>
+          <td><%= student.full_score_of(@rating.id) %></td>
+          <% @rating.rating_elements.each do |el| %>
+            <td><%= student.rating_element_score(el.id) %></td>
+          <% end %>
+        </tr>
+        <% i += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to t(:to_discipline), @discipline, class: 'btn btn-default edu_portal_link' %>
+</div>

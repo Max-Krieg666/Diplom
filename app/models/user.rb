@@ -67,12 +67,22 @@ class User < ActiveRecord::Base
     end
   end
 
+  def rating_element_score(rating_element_id)
+    if student?
+      sum = 0
+      student_rating_elements.each{ |s| sum += s.value if s.rating_element_id == rating_element_id }
+      sum
+    end
+  end
+
   def show_mark_of(rating_id)
 		sc = full_score_of(rating_id)
     if sc < 60
       'Неудовлетворительно'
     elsif sc > 84
       'Отлично'
+    elsif sc >= 60 && sc < 75
+      'Удовлетворительно'
     else # sc >= 60 && sc < 85
       'Хорошо'
     end

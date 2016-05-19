@@ -1,5 +1,8 @@
 <% if @current_user.administrator? %>
-  <%= render 'index_admin' %>
+  <div class="disciplines_administrator">
+    <h1><%= t(:all_disciplines) %></h1>
+    <%= render 'index_admin' %>
+  </div>
 <% elsif @current_user.teacher? %>
   <div>
     <h1><%= t(:my_disciplines) %></h1>

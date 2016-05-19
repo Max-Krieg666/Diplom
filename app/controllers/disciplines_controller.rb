@@ -1,16 +1,16 @@
 class DisciplinesController < ApplicationController
-	before_action :check_user
-	before_action :admin_permission, only: [:new, :create, :destroy]
+  before_action :check_user
+  before_action :admin_permission, only: [:new, :create, :destroy]
   before_action :set_discipline, only: [:show, :edit, :update, :destroy, :detailed_rating]
-	before_action :set_teachers, only: [:show, :edit, :update, :new, :create]
+  before_action :set_teachers, only: [:show, :edit, :update, :new, :create]
 
   def index
     @disciplines = Discipline.all
   end
 
   def show
-		@rating = @discipline.rating
-		@rating_elements = @rating.rating_elements
+    @rating = @discipline.rating
+    @rating_elements = @rating.rating_elements
   end
 
   def new
@@ -22,22 +22,22 @@ class DisciplinesController < ApplicationController
 
   def create
     @discipline = Discipline.new(discipline_params)
-		rate = Rating.create(max_score: 100)
-		@discipline.rating_id = rate.id
-		respond_to do |format|
+    rate = Rating.create(max_score: 100)
+    @discipline.rating_id = rate.id
+    respond_to do |format|
       if @discipline.save
-				rate.discipline_id = @discipline.id
-				rate.save!
-				if params['user_ids'].presence
-					params['user_ids'].each do |u|
-						@discipline.users << User.find(u)
-					end
-				end
+        rate.discipline_id = @discipline.id
+        rate.save!
+        if params['user_ids'].presence
+          params['user_ids'].each do |u|
+            @discipline.users << User.find(u)
+          end
+        end
         format.html { redirect_to @discipline, notice: 'Дисциплина успешно создана.' }
         format.json { render :show, status: :created, location: @discipline }
-			else
-				@discipline.errors.add(:users, 'Необходимо выбрать преподавателя') unless params[:user_ids].presence
-				format.html { render :new }
+      else
+        @discipline.errors.add(:users, 'Необходимо выбрать преподавателя') unless params[:user_ids].presence
+        format.html { render :new }
         format.json { render json: @discipline.errors, status: :unprocessable_entity }
       end
     end

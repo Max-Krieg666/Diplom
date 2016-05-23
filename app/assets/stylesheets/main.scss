@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-multiselect";
+@import "markitup/skins/markitup/style";
+@import "markitup/sets/xbbcode/style";
 
 a.edu_portal_link {
   &:hover {
@@ -40,7 +42,7 @@ a.edu_portal_link {
   padding-top: 0;
   padding-bottom: 0;
   &:hover {
-    background-color: #039;
+    background-color: #fff;
   }
 }
 
@@ -55,7 +57,7 @@ a.edu_portal_link {
 }
 
 .header-text_third {
-  padding-left: 11%;
+  padding-left: 9%;
   color: rgb(153,153,153);
 }
 

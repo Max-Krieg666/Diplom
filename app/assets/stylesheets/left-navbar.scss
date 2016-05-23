@@ -1,0 +1,27 @@
+#additional_menu {
+  margin: 0 !important;
+  margin-top: 11% !important;
+  float: left !important;
+  max-width: 18% !important;
+  * {
+    width: inherit !important;
+  }
+  border: 1px solid #ccc;
+  background-color: #e7e7e7;
+  position: fixed;
+}
+
+.discipline-other-block {
+  float: left !important;
+  margin-left: 20%;
+  margin-top: 0 !important;
+  padding-left: 2%;
+  z-index: 101;
+}
+
+.left-nav-link {
+  display: block;
+  margin: 0 !important;
+  padding-left: 1px !important;
+  padding-right: 1% !important;
+}

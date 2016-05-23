@@ -6,6 +6,13 @@ class DisciplinesController < ApplicationController
 
   def index
     @disciplines = Discipline.all
+    if @current_user.administrator?
+      render '_index_admin'
+    elsif @current_user.role == 1
+      render '_index_teacher'
+    else
+      render '_index_student'
+    end
   end
 
   def show

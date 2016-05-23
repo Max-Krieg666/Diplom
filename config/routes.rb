@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :groups
   resources :users
 
+  post "markdown/preview"
+
 	get 'login' => "sessions#new", as: :login
 	post 'login' => "sessions#create"
 	patch 'logout' => "sessions#destroy"

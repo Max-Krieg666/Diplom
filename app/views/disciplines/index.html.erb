@@ -1,18 +1,2 @@
-<% if @current_user.administrator? %>
-  <div class="disciplines_administrator">
-    <h1><%= t(:all_disciplines) %></h1>
-    <%= render 'index_admin' %>
-  </div>
-<% elsif @current_user.teacher? %>
-  <div>
-    <h1><%= t(:my_disciplines) %></h1>
-    <%= render 'index_teacher' %>
-  </div>
-<% else %>
-  <div>
-    <h1><%= t(:my_disciplines) %></h1>
-    <%= render 'index_student' %>
-  </div>
-<% end %>
 <% # TODO подумать о добавлении типа рейтинга или дисциплины - зачет/экз%>
 <% # страницы по дисциплинам +++ MARKDOWN %>

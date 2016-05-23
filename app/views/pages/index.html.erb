@@ -1,27 +1,37 @@
-<h1>Все страницы</h1>
+<%= render 'left_navbar' %>
 
-<table class="table table-condensed table-bordered table-hover all_pages">
-  <thead>
-    <tr>
-      <th><%= Page.human_attribute_name(:title) %></th>
-      <th><%= Page.human_attribute_name(:content) %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="discipline-other-block">
+  <h1><%= "Учебные материалы по дисциплине \"#{@discipline.title}\"" %> <small><%= @discipline.group.numer %></small></h1>
+  <br>
+  <% if @pages.any? %>
+    <table class="table table-condensed table-bordered table-hover all_pages">
+      <thead>
+        <tr>
+          <th><%= Page.human_attribute_name(:title) %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.title %></td>
-        <td><%= page.content %></td>
-        <td><%= link_to t(:show), page %></td>
-        <td><%= link_to t(:edit), edit_page_path(page) %></td>
-        <td><%= link_to t(:destroy), page, method: :delete, data: { confirm: t(:confirm) } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @pages.each do |page| %>
+          <tr>
+            <td><%= page.title %></td>
+            <td><%= link_to t(:show), page %></td>
+            <td><%= link_to t(:edit), edit_page_path(page) %></td>
+            <td><%= link_to t(:destroy), page, method: :delete, data: { confirm: t(:confirm) } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <%= 'У данной страницы ещё нет учебных материалов!' %>
+  <% end %>
+  <br>
+  <br>
 
-<br>
+  <%#= link_to 'Создание новой страницы', new_page_path, class: 'btn btn-default edu_portal_link' %>
 
-<%= link_to 'Создание новой страницы', new_page_path, class: 'btn btn-default edu_portal_link' %>
+  <button id="js-show-form-btn" class="btn btn-info" data-toggle="collapse" data-target="#show-form">созда</button>
+  <div id="show-form">
+  </div>
+</div>

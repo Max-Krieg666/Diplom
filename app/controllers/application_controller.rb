@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def manager_permission
+    def teacher_permission
       unless @current_user.try(:teacher?)
 				flash[:danger] = I18n.t(:permission_denied)
         redirect_to login_path

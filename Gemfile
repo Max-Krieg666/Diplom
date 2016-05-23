@@ -24,6 +24,9 @@ gem 'carrierwave'
 gem 'jquery-rails'
 gem 'jquery-tablesorter'
 
+# markdown
+gem 'markitup-rails'
+
 # icons
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'

@@ -1,15 +1,21 @@
 <%= form_for(@section) do |f| %>
   <%= error_messages_for(@section) %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label Section.human_attribute_name(:title) %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.hidden_field :page_id, value: params[:page_id] %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
+
+  <br>
+
+  <div class="form-group">
+    <%= f.label Section.human_attribute_name(:content) %><br>
+    <%= f.text_field :content, class: 'form-control' %>
   </div>
+
   <div class="actions">
     <%= f.submit t(:save), class: 'btn btn-default' %>
   </div>
+  <br>
 <% end %>

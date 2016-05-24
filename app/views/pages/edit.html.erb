@@ -1,7 +1,9 @@
-<h1>Редактирование страницы</h1>
+<div id="new_page_for_discipline">
+  <h1>Редактирование страницы</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<br>
-<%= link_to t(:show), @page, class: 'btn btn-primary' %>
-<%= link_to t(:back), pages_path, class: 'btn btn-default edu_portal_link' %>
+  <br>
+  <%= link_to t(:show), @page, class: 'btn btn-primary' %>
+  <%= link_to t(:back), pages_path(discipline_id: @discipline.id), class: 'btn btn-default edu_portal_link' %>
+</div>

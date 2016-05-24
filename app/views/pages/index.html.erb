@@ -8,6 +8,8 @@
       <thead>
         <tr>
           <th><%= Page.human_attribute_name(:title) %></th>
+          <th><%= Page.human_attribute_name(:created_at) %></th>
+          <th><%= Page.human_attribute_name(:updated_at) %></th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -16,9 +18,13 @@
         <% @pages.each do |page| %>
           <tr>
             <td><%= page.title %></td>
+            <td><%= l page.created_at %></td>
+            <td><%= l page.updated_at %></td>
             <td><%= link_to t(:show), page %></td>
-            <td><%= link_to t(:edit), edit_page_path(page) %></td>
-            <td><%= link_to t(:destroy), page, method: :delete, data: { confirm: t(:confirm) } %></td>
+            <% if @current_user.teacher? %>
+              <td><%= link_to t(:edit), edit_page_path(page) %></td>
+              <td><%= link_to t(:destroy), page, method: :delete, data: { confirm: t(:confirm) } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
@@ -31,7 +37,7 @@
 
   <%#= link_to 'Создание новой страницы', new_page_path, class: 'btn btn-default edu_portal_link' %>
 
-  <button id="js-show-form-btn" class="btn btn-info" data-toggle="collapse" data-target="#show-form">созда</button>
+  <button id="js-show-form-btn" class="btn btn-info" data-toggle="collapse" data-target="#show-form">Создать страницу с учебными материалами</button>
   <div id="show-form">
   </div>
 </div>

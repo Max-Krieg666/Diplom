@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'jquery-tablesorter'
 
 # markdown
+gem 'redcarpet'
 gem 'markitup-rails'
 
 # icons

@@ -75,8 +75,10 @@ class UsersController < ApplicationController
 
   def user_params
     fields = [:login, :password, :email, :lastname, :firstname, :patronymic, :group_id]
-    fields << :is_active if @current_user.administrator?
-    fields << :role if @current_user.administrator?
+    if @current_user.administrator?
+      fields << :is_active
+      fields << :role
+    end
     params.require(:user).permit(fields)
   end
 end

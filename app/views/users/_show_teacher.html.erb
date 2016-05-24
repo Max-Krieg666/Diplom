@@ -1,8 +1,4 @@
 <div class="show_teacher">
-  <% if @user.id == @current_user.id %>
-    <h4><%= t(:my_disciplines) %>:</h4>
-  <% else %>
-    <h4><%= t(:this_teacher_disciplines) %>:</h4>
-  <% end %>
-  <%= render partial: 'disciplines/index_teacher', locals: { disciplines: @user.disciplines } %>
+  <% @disciplines = @user.disciplines %>
+  <%= render 'disciplines/index_teacher' %>
 </div>

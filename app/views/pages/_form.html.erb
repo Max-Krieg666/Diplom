@@ -1,15 +1,18 @@
 <%= form_for(@page) do |f| %>
-  <%#TODO забутстрапировать pages, продумать sections%>
   <%= error_messages_for(@page) %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label Page.human_attribute_name(:title) %><br>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
+
+  <br>
+
+  <div class="form-group">
+    <%= f.label Page.human_attribute_name(:content) %><br>
+    <%= f.text_field :content, class: 'form-control' %>
   </div>
+
   <div class="actions">
     <%= f.submit t(:save), class: 'btn btn-default' %>
   </div>

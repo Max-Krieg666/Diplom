@@ -21,11 +21,10 @@ ru:
   prompt_select: Выберите
   some_errors: При сохранении произошли ошибки!
   my_disciplines: Мои дисциплины
+  teach_disciplines: Мои дисциплины
   to_disciplines: К дисциплинам
   to_discipline: К дисциплине
   all_disciplines: Все дисциплины
-  this_teacher_disciplines: Дисциплины, которые ведёт преподаватель
-  this_student_disciplines: Дисциплины студента
   studying_disciplines: Изучаемые дисциплины
   score_plus: Начислить баллы
   all_users: Все пользователи
@@ -65,6 +64,8 @@ ru:
         title: Название
         content: Содержимое
         discipline: Дисциплина
+        created_at: Страница создана
+        updated_at: Страница обновлена
       section:
         title: Название
         content: Содержимое

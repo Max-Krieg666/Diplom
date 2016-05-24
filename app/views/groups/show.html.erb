@@ -24,9 +24,8 @@
   </tbody>
 </table>
 
-<% if @group.disciplines %>
-	<h3><%= t(:studying_disciplines) %>:</h3>
-  <%= render partial: 'disciplines/index_student', locals: { disciplines: @group.disciplines } %>
+<% if @disciplines = @group.disciplines %>
+  <%= render 'disciplines/index_student' %>
 <% end %>
 
 <% if @current_user.administrator? %>

@@ -1,13 +1,38 @@
-<p>
-  <%= Page.human_attribute_name(:title) %>
-  <%= @page.title %>
-</p>
+<%= render 'left_navbar' %>
 
-<p>
-  <%= Page.human_attribute_name(:content) %>
-  <%= @page.content %>
-</p>
+<div class="discipline-other-block">
+  <div class="title_of_pages">
+    <h1><%= @page.title %></h1>
+    <h3>
+      <strong><%= Page.human_attribute_name(:discipline) %>:</strong>
+      <%= @discipline.title %> <small><%= @discipline.group.numer %></small>
+    </h3>
+    <br>
+  </div>
 
-<br>
-<%= link_to t(:edit), edit_page_path(@page), class: 'btn btn-primary' %>
-<%= link_to t(:back), pages_path, class: 'btn btn-default edu_portal_link' %>
+  <br>
+
+  <div class="markdown-content-for-page">
+    <%= markdown(@page.content) %>
+  </div>
+
+  <% @page.sections.each do |sec| %>
+    <div class="markdown-content-for-page">
+      <h4><%= sec.title %></h4>
+      <br>
+      <%= markdown(sec.content) %>
+    </div>
+  <% end %>
+  <br>
+
+  <% if @current_user.teacher? %>
+    <button id="js-new-section-btn" class="btn btn-info" data-toggle="collapse" data-target="#show-section-form">Создать раздел</button>
+    <div id="show-section-form">
+    </div>
+
+    <br>
+    <%= link_to t(:edit), edit_page_path(@page), class: 'btn btn-primary' %>
+  <% end %>
+
+  <%= link_to t(:back), pages_path(discipline_id: @discipline.id), class: 'btn btn-default edu_portal_link' %>
+</div>

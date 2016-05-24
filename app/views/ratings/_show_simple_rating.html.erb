@@ -6,7 +6,9 @@
       <th><%= Rating.human_attribute_name(:student) %></th>
       <th><%= Rating.human_attribute_name(:this_score) %></th>
       <th><%= Rating.human_attribute_name(:this_mark) %></th>
-	    <th></th>
+      <% if @current_user.teacher? %>
+	      <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -17,7 +19,9 @@
         <td><%= link_to student.fio, student, class: 'edu_portal_link' %></td>
         <td><%= student.full_score_of(@discipline.rating.id) %></td>
         <td><%= student.show_mark_of(@discipline.rating.id) %></td>
-	      <td><%= link_to t(:score_plus), new_student_rating_element_path(user_id: student.id, discipline_id: @discipline.id), class: 'edu_portal_link' %></td>
+        <% if @current_user.teacher? %>
+	        <td><%= link_to t(:score_plus), new_student_rating_element_path(user_id: student.id, discipline_id: @discipline.id), class: 'edu_portal_link' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

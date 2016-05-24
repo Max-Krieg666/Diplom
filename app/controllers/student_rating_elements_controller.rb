@@ -1,5 +1,6 @@
 class StudentRatingElementsController < ApplicationController
 	before_action :check_user
+	before_action :teacher_permission
   before_action :set_student_rating_element, only: [:edit, :update, :destroy]
 
   def new

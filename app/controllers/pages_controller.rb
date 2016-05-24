@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
 	before_action :check_user
-  before_action :teacher_permission, only: [:new, :create, :destroy]
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
   before_action :set_discipline
+  before_action :teacher_permission, except: [:show, :index]
+  before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   def index
     if @discipline
@@ -62,10 +62,11 @@ class PagesController < ApplicationController
   private
     def set_page
       @page = Page.find(params[:id])
+      @discipline = @page.discipline
     end
 
     def page_params
-      params.require(:page).permit(:title, :content)
+      params.require(:page).permit(:title, :content, :discipline_id)
     end
 
     def set_discipline

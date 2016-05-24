@@ -48,6 +48,7 @@ jQuery ->
     '\n'+heading
 
   $('#page_content').markItUp(markdownSettings)
+  $('#section_content').markItUp(markdownSettings)
 
   $ ->
     $(document).on 'click', '#js-show-form-btn', ->
@@ -59,3 +60,15 @@ jQuery ->
           success: (data) ->
             $('#show-form').html($(data).find('#new_page_for_discipline'))
             $('#page_content').markItUp(markdownSettings)
+
+  $ ->
+    $(document).on 'click', '#js-new-section-btn', ->
+      if window.location.pathname.includes('/pages/')
+        page_id = window.location.pathname.substr(7)
+        $.get
+          url: '/sections/new?page_id=' + page_id
+          method: 'GET'
+          dataType: 'html'
+          success: (data) ->
+            $('#show-section-form').html($(data).find('#new_section_for_page'))
+            $('#section_content').markItUp(markdownSettings)
